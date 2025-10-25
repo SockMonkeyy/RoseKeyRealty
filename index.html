@@ -3,61 +3,183 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rose Key Realty Co.</title>
+  <title>Rose Key Realty Co. | Unlocking Opportunity</title>
   <style>
-    :root{
-      --bg:#f7f7f8;--card:#fff;--text:#1a1a1a;
-      --muted:#555;--accent:#0a7f62;--accent2:#f5b700;
+    :root {
+      --primary:#0a7f62;
+      --accent:#f5b700;
+      --dark:#111;
+      --light:#f7f7f8;
+      --text:#222;
+      --muted:#555;
+      --radius:16px;
     }
-    body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto;background:var(--bg);color:var(--text)}
-    .wrap{max-width:900px;margin:auto;padding:24px}
-    .hero{text-align:center;padding:50px 24px;background:var(--card);
-          border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,.06);}
-    h1{margin:0;font-size:32px}
-    p{color:var(--muted)}
-    .cta{display:inline-block;background:var(--accent);color:#fff;
-         padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600}
-    .cta.alt{background:var(--accent2);color:#000}
-    footer{margin-top:40px;text-align:center;font-size:13px;color:var(--muted)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--light);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      background:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position:relative;
+      height:75vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+    }
+    header::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+    header .hero{
+      position:relative;
+      z-index:2;
+      max-width:700px;
+      padding:0 20px;
+    }
+    h1{
+      font-size:2.5rem;
+      margin-bottom:.5rem;
+      color:var(--accent);
+    }
+    h2{
+      color:var(--primary);
+      margin-bottom:.6rem;
+    }
+    p{margin-bottom:1rem}
+    .cta{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:12px 26px;
+      border-radius:var(--radius);
+      font-weight:600;
+      text-decoration:none;
+      transition:all .25s ease;
+    }
+    .cta:hover{background:#06654c;transform:translateY(-2px)}
+    .cta.alt{
+      background:var(--accent);
+      color:#000;
+      margin-left:8px;
+    }
+    section{
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 20px;
+    }
+    .grid{
+      display:grid;
+      gap:30px;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    }
+    .card{
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:0 6px 20px rgba(0,0,0,.06);
+      padding:30px;
+      transition:transform .2s;
+    }
+    .card:hover{transform:translateY(-4px)}
+    ul{padding-left:20px;margin-bottom:0}
+    footer{
+      background:#0a7f62;
+      color:#fff;
+      text-align:center;
+      padding:30px 15px;
+      font-size:14px;
+      margin-top:60px;
+    }
+    footer a{color:#fff;text-decoration:underline}
+    .sticky-contact{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      z-index:50;
+    }
+    .sticky-contact a{
+      background:var(--primary);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 4px 10px rgba(0,0,0,.2);
+      transition:all .25s ease;
+    }
+    .sticky-contact a:hover{background:#06654c;transform:translateY(-2px)}
+    @media(max-width:600px){
+      header{height:60vh}
+      h1{font-size:2rem}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <h1>🏡 Rose Key Realty Co.</h1>
+
+  <header>
+    <div class="hero">
+      <h1>Rose Key Realty Co.</h1>
       <p>Unlocking opportunity — one property at a time.<br>
          Serving Birmingham and surrounding areas.</p>
-      <p>
-        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSepJ2Hj0Vf1diRYO_KmvowTGNeQoiiXVJD6pTuLlLT2VKER7A/viewform?usp=dialog" target="_blank">Get a Cash Offer / Join Buyer List</a>
-      </p>
-    </section>
+      <a class="cta" href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" target="_blank">Get a Cash Offer / Join Buyer List</a>
+      <a class="cta alt" href="#contact">Contact Us</a>
+    </div>
+  </header>
 
-    <section>
-      <h2>About Us</h2>
-      <p>At <strong>Rose Key Realty Co.</strong> we help homeowners and investors
-      reach their goals — whether you want a quick as-is cash sale or a
-      traditional listing for top dollar.</p>
-      <ul>
-        <li>💰 Fast Cash Offers — sell as-is, no repairs or showings</li>
-        <li>🏠 Traditional Listings — top dollar with full exposure</li>
-        <li>🤝 Investor Partnerships — access off-market opportunities</li>
-      </ul>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      At <strong>Rose Key Realty Co.</strong>, we help homeowners and investors reach their real estate goals with honesty and transparency.
+      Whether you're ready to sell for cash or list traditionally for top dollar, our team will guide you through every step.
+    </p>
+  </section>
 
-    <section>
-      <h2>Contact Us</h2>
-      <p>
-        📞 <a href="tel:+12058528786">(205) 852-8786</a><br>
-        ✉️ <a href="mailto:rosekeyrealtyco@gmail.com">rosekeyrealtyco@gmail.com</a>
-      </p>
-      <p><a class="cta alt" href="https://docs.google.com/forms/d/e/1FAIpQLSepJ2Hj0Vf1diRYO_KmvowTGNeQoiiXVJD6pTuLlLT2VKER7A/viewform?usp=dialog" target="_blank">Submit Your Property Info</a></p>
-    </section>
+  <section id="services">
+    <h2>What We Offer</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>💰 Fast Cash Offers</h3>
+        <p>Sell your property as-is with no repairs, showings, or agent fees. Close in as little as two weeks.</p>
+      </div>
+      <div class="card">
+        <h3>🏠 Traditional Listings</h3>
+        <p>Maximize your return through expert marketing, professional photos, and full exposure on the MLS.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Investor Partnerships</h3>
+        <p>Join our buyer network to access exclusive off-market deals and investment opportunities in Alabama.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL
-    </footer>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to connect! Reach out today to discuss your property or investment goals.</p>
+    <p>
+      📞 <a href="tel:+12058528786">(205) 852-8786</a><br>
+      ✉️ <a href="mailto:rosekeyrealtyco@gmail.com">rosekeyrealtyco@gmail.com</a>
+    </p>
+    <a class="cta alt" href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" target="_blank">Submit Your Property Info</a>
+  </section>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL<br>
+    “Unlocking Opportunity — One Property at a Time.”
+  </footer>
+
+  <div class="sticky-contact">
+    <a href="tel:+12058528786">📞 Call</a>
+    <a href="mailto:rosekeyrealtyco@gmail.com">✉️ Email</a>
   </div>
+
 </body>
 </html>
-
-
