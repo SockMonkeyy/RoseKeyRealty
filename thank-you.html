@@ -1,98 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You | Rose Key Realty Co.</title>
-
   <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a">
-
   <style>
-    :root{
+    :root {
       --primary:#0a7f62;
       --accent:#f5b700;
       --light:#f7f7f8;
       --text:#222;
-      --muted:#666;
       --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.10);
+      --shadow:0 10px 30px rgba(0,0,0,.1);
     }
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{
+    body {
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:var(--light);
       color:var(--text);
       display:flex;
-      flex-direction:column;
       align-items:center;
       justify-content:center;
       min-height:100vh;
-      padding:24px;
+      padding:20px;
       text-align:center;
     }
-
-    .thankyou-box{
+    .card {
       background:#fff;
-      padding:40px 32px;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      max-width:600px;
+      padding:40px 30px;
+      max-width:480px;
       width:100%;
-      animation:fadeIn 0.8s ease-out;
     }
-
-    h1{
+    h1 {
       color:var(--primary);
       font-size:2rem;
       margin-bottom:12px;
     }
-    p{
-      color:var(--muted);
-      font-size:1.05rem;
-      margin-bottom:24px;
+    p {
+      color:#444;
+      margin-bottom:20px;
+      line-height:1.6;
     }
-
-    .cta{
+    .cta {
       display:inline-block;
       background:var(--primary);
       color:#fff;
-      padding:14px 22px;
-      border-radius:12px;
-      font-weight:700;
       text-decoration:none;
-      transition:background 0.2s ease, transform 0.15s ease;
+      font-weight:700;
+      padding:14px 26px;
+      border-radius:var(--radius);
+      transition:transform .15s ease, background .2s ease;
     }
-    .cta:hover{
-      background:#06654c;
-      transform:translateY(-2px);
+    .cta:hover { background:#06654c; transform:translateY(-2px); }
+    .logo {
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      margin-bottom:16px;
+      filter:drop-shadow(0 4px 6px rgba(0,0,0,.15));
     }
-
-    footer{
-      margin-top:48px;
-      font-size:.9rem;
-      color:var(--muted);
+    footer {
+      margin-top:40px;
+      font-size:.85rem;
+      color:#777;
     }
-    footer a{ color:var(--primary); text-decoration:none; }
-
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(20px);}
-      to{opacity:1;transform:none;}
-    }
+    footer a { color:var(--primary); text-decoration:none; }
   </style>
 </head>
 <body>
 
-  <div class="thankyou-box">
+  <div class="card fade-in">
+    <img class="logo" src="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a" alt="Rose Key Realty Co. logo">
     <h1>Thank You!</h1>
-    <p>We’ve received your information and our team will be in touch shortly.  
-    Whether you’re selling a home or joining our buyers list, we truly appreciate your trust in <b>Rose Key Realty Co.</b></p>
-    <a href="index.html" class="cta">Back to Home</a>
-  </div>
+    <p>We’ve received your information and will be in touch shortly.<br>
+       Expect a call or email from our team within one business day.</p>
 
-  <footer>
-    © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • 
-    <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a>
-  </footer>
+    <a href="index.html" class="cta">← Back to Home</a>
+
+    <footer>
+      © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co.  
+      · <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a>
+    </footer>
+  </div>
 
 </body>
 </html>
