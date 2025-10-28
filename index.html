@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="theme-color" content="#0a7f62">
+  <!-- SEO and Social Sharing Meta Tags -->
+<meta name="description" content="Sell your house fast in Birmingham, AL. Rose Key Realty Co. offers fair cash offers with no repairs, no fees, and flexible closings.">
+<meta name="keywords" content="sell house fast Birmingham, cash home buyers Alabama, Rose Key Realty, we buy houses, real estate Birmingham">
+<meta name="author" content="Rose Key Realty Co.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a7f62">
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="Rose Key Realty Co. | Sell Your House Fast in Birmingham">
+<meta property="og:description" content="Get a fair cash offer with no repairs or fees. Serving Birmingham homeowners with honesty and speed.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:url" content="https://rosekeyrealtyco.com/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card (X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rose Key Realty Co. | Get a Cash Offer Fast">
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Rose Key Realty Co. | Get a Cash Offer</title>
@@ -25,8 +44,15 @@
       color:var(--text);
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
-    }
-
+       }
+  .sticky-contact a {
+    background: linear-gradient(135deg, var(--accent), #ffd84d);
+    color: #000;
+    font-weight: 700;
+  }
+  .sticky-contact a:hover {
+    transform: scale(1.05);
+  }
     nav{
       background:#fff;
       box-shadow:0 2px 8px rgba(0,0,0,.05);
@@ -70,6 +96,18 @@
     h5{font-size:2.6rem;color:#fff;margin-bottom:10px;}
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
     .badge{background:#eaf7f3;color:#064;padding:6px 10px;border-radius:999px;font-weight:600;font-size:.9rem;}
+    @media (max-width: 600px) {
+  .card {
+    padding: 20px;
+  }
+  .hero-copy h1 {
+    font-size: 2rem;
+  }
+  .hero-copy p {
+    font-size: 0.95rem;
+  }
+  }
+
 
     .card{
       background:#fff;border-radius:var(--radius);
@@ -105,12 +143,11 @@
       background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:22px;
     }
     .feature b{color:#000;}
-
     .feature-img{
       width:100%;height:200px;object-fit:cover;
       border-radius:10px;margin-bottom:12px;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      transition:transform .35s ease,box-shadow .35s ease,filter .35s ease;
+      transition:transform .35s ease,filter .35s ease;
     }
     .feature:hover .feature-img{transform:scale(1.04);filter:brightness(1.05);}
     @media(max-width:600px){.feature-img{height:150px;}}
@@ -130,17 +167,32 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
+    .trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.trust-badge strong {
+  color: var(--primary);
+}
+.trust-icon {
+  width: 40px;
+  height: auto;
+  filter: grayscale(0%) brightness(1);
+  opacity: 0.9;
+}
+@media (max-width: 600px) {
+  .trust-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
-    .toast{
-      position:fixed;top:18px;right:18px;background:#111;color:#fff;
-      padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);
-      opacity:0;pointer-events:none;
-      transition:opacity .2s ease,transform .2s ease;
-      transform:translateY(-6px);
-    }
-    .toast.show{opacity:1;pointer-events:auto;transform:none;}
-    .toast.success{background:#0a7f62;}
-    .toast.error{background:#b00020;}
   </style>
 </head>
 
@@ -177,18 +229,32 @@
       <div class="card fade-in">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
-        <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
-          <input type="text" name="_gotcha" style="display:none">
+        <!-- Updated to Web3Forms -->
+        <form class="hero-form" id="offerForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
+          <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
+
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="tel" name="phone" placeholder="Phone" required>
           <input class="full" type="email" name="email" placeholder="Email (optional)">
           <input class="full" type="text" name="address" placeholder="Property Address" required>
-          <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
-          <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
+          <select name="timeline">
+            <option value="">Timeline</option>
+            <option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option>
+          </select>
+          <select name="situation">
+            <option value="">Situation</option>
+            <option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option>
+            <option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
+          </select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
           <button type="submit" class="cta full">Get My Cash Offer</button>
         </form>
         <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
+        <!-- Trust Badge / Testimonial -->
+    <div class="trust-badge">
+      <p>Trusted by <strong>50+ Birmingham homeowners</strong> — rated A+ for integrity and speed.</p>
+      </div>
       </div>
     </div>
   </header>
@@ -257,8 +323,11 @@
     <div class="card" style="margin-top:24px;">
       <h2>Get Early Access to Properties</h2>
       <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
-      <form class="hero-form" id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
-        <input type="text" name="_gotcha" style="display:none">
+      <!-- Updated to Web3Forms -->
+      <form class="hero-form" id="buyersForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
+        <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
+
         <input type="text" name="buyer_name" placeholder="Full Name" required>
         <input type="email" name="buyer_email" placeholder="Email" required>
         <input type="tel" name="buyer_phone" placeholder="Phone Number">
@@ -294,22 +363,8 @@
     <a href="mailto:deals@rosekeyrealtyco.com">✉️ Email</a>
   </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
   <script>
-    const toast=document.getElementById('toast');
-    function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
-    document.querySelectorAll('form').forEach(form=>{
-      form.addEventListener('submit',async e=>{
-        e.preventDefault();
-        const data=new FormData(form);
-        try{
-          const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
-          if(res.ok){form.reset();showToast('Thanks! Your information has been received.');}
-          else showToast('Submission failed. Try again.','error');
-        }catch{showToast('Network error — please try again.','error');}
-      });
-    });
+    // Fade-in effect
     const fadeEls=document.querySelectorAll('.fade-in');
     const observer=new IntersectionObserver(entries=>{
       entries.forEach((entry,i)=>{
@@ -321,10 +376,22 @@
       });
     },{threshold:0.2});
     fadeEls.forEach(el=>observer.observe(el));
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Rose Key Realty Co.",
+  "image": "https://rosekeyrealtyco.com/logo.png",
+  "telephone": "+12058528786",
+  "email": "deals@rosekeyrealtyco.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Birmingham",
+    "addressRegion": "AL",
+    "addressCountry": "US"
+  },
+  "url": "https://rosekeyrealtyco.com"
+}
   </script>
 </body>
 </html>
-
-
-
-
