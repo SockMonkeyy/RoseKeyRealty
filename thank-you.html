@@ -1,90 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Thank You | Rose Key Realty Co.</title>
+
   <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a">
+
   <style>
     :root {
       --primary:#0a7f62;
       --accent:#f5b700;
       --light:#f7f7f8;
+      --dark:#111;
       --text:#222;
       --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.1);
+      --shadow:0 8px 24px rgba(0,0,0,.12);
     }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body {
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      height:100%;
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:var(--light);
       color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    body{
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:100vh;
-      padding:20px;
+      flex-direction:column;
       text-align:center;
+      padding:30px 20px;
     }
-    .card {
+
+    .thankyou-box{
       background:#fff;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
+      max-width:500px;
       padding:40px 30px;
-      max-width:480px;
-      width:100%;
+      animation:fadeIn .8s ease-out both;
     }
-    h1 {
+
+    .thankyou-box img{
+      width:70px;
+      margin-bottom:20px;
+    }
+
+    h1{
       color:var(--primary);
       font-size:2rem;
-      margin-bottom:12px;
+      margin-bottom:10px;
     }
-    p {
+
+    p{
       color:#444;
-      margin-bottom:20px;
-      line-height:1.6;
+      margin-bottom:24px;
     }
-    .cta {
+
+    .cta{
       display:inline-block;
       background:var(--primary);
       color:#fff;
       text-decoration:none;
-      font-weight:700;
-      padding:14px 26px;
+      padding:12px 28px;
       border-radius:var(--radius);
-      transition:transform .15s ease, background .2s ease;
+      font-weight:600;
+      transition:all .25s ease;
     }
-    .cta:hover { background:#06654c; transform:translateY(-2px); }
-    .logo {
-      width:80px;
-      height:80px;
-      object-fit:contain;
-      margin-bottom:16px;
-      filter:drop-shadow(0 4px 6px rgba(0,0,0,.15));
+    .cta:hover{
+      background:#06654c;
+      transform:translateY(-2px);
     }
-    footer {
+
+    footer{
+      text-align:center;
       margin-top:40px;
-      font-size:.85rem;
       color:#777;
+      font-size:.9rem;
     }
-    footer a { color:var(--primary); text-decoration:none; }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:none;}
+    }
+
+    @media(max-width:600px){
+      .thankyou-box{padding:30px 20px;}
+      h1{font-size:1.8rem;}
+    }
   </style>
 </head>
+
 <body>
 
-  <div class="card fade-in">
-    <img class="logo" src="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a" alt="Rose Key Realty Co. logo">
+  <div class="thankyou-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Checkmark success icon">
     <h1>Thank You!</h1>
-    <p>We’ve received your information and will be in touch shortly.<br>
-       Expect a call or email from our team within one business day.</p>
-
-    <a href="index.html" class="cta">← Back to Home</a>
-
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co.  
-      · <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a>
-    </footer>
+    <p>We’ve received your submission and our team will be in touch soon.<br><br>
+       Whether you're selling or investing, we’re excited to help you unlock your next opportunity with <strong>Rose Key Realty Co.</strong></p>
+    <p>Need immediate help? Call us at <a href="tel:+12058528786">(205) 852-8786</a></p>
+    <a href="https://rosekeyrealtyco.com" class="cta">⬅ Back to Home</a>
   </div>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL
+  </footer>
 
 </body>
 </html>
