@@ -167,6 +167,32 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
+    .trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.trust-badge strong {
+  color: var(--primary);
+}
+.trust-icon {
+  width: 40px;
+  height: auto;
+  filter: grayscale(0%) brightness(1);
+  opacity: 0.9;
+}
+@media (max-width: 600px) {
+  .trust-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
   </style>
 </head>
 
@@ -371,6 +397,7 @@
   </script>
 </body>
 </html>
+
 
 
 
