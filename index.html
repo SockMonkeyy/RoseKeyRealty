@@ -141,29 +141,6 @@
     .toast.show{opacity:1;pointer-events:auto;transform:none;}
     .toast.success{background:#0a7f62;}
     .toast.error{background:#b00020;}
-    /* FAQ Section Spacing */
-#faq {
-  background: #f7f7f8;
-  padding: 60px 20px;
-  margin: 80px auto;       /* Adds breathing room above and below */
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  border-radius: 16px;
-}
-#faq h3 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-#faq .feature {
-  margin: 0 auto 28px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  max-width: 900px;
-}
-#faq .feature:last-child { margin-bottom: 0; }
-
   </style>
 </head>
 
@@ -210,7 +187,7 @@
           <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
           <button type="submit" class="cta full">Get My Cash Offer</button>
-          <div class="trust">By submitting, you agree to be contacted by phone, text, or email.</div>
+          <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
         </form>
       </div>
     </div>
@@ -221,7 +198,7 @@
     <h3 class="fade-in">How It Works</h3>
     <div class="grid">
       <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/9a3b6a9d-91b0-4f49-9e18-0b5418d41d13?auto=compress&cs=tinysrgb&w=800" class="feature-img">
+        <img src="https://images.pexels.com/photos/4195323/pexels-photo-4195323.jpeg?auto=compress&cs=tinysrgb&w=800" class="feature-img">
         <b>1) Tell us about the property</b><br>Share a few details and your preferred timeline.
       </div>
       <div class="feature fade-in">
@@ -272,34 +249,6 @@
       </div>
     </div>
   </section>
-
-<!-- FAQ -->
-<section id="faq" class="fade-in">
-  <h3>Frequently Asked Questions</h3>
-
-  <div class="faq-item">
-    <button class="faq-question">Do I need to make repairs before selling?</button>
-    <div class="faq-answer">
-      <p>No — we buy properties as-is. You don’t need to spend a dime fixing or cleaning anything.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">How quickly can I close?</button>
-    <div class="faq-answer">
-      <p>Most of our sellers close in as little as 14–30 days, depending on title and paperwork.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">Do I have to accept your offer?</button>
-    <div class="faq-answer">
-      <p>Not at all. Our offers are completely free and come with zero obligation.</p>
-    </div>
-  </div>
-</section>
-
-
 
   <!-- BUYERS LIST -->
   <section id="buyers-list" class="fade-in">
@@ -372,17 +321,6 @@
       });
     },{threshold:0.2});
     fadeEls.forEach(el=>observer.observe(el));
-     document.querySelectorAll('.faq-question').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const item = btn.parentElement;
-      item.classList.toggle('active');
-    });
-  });
   </script>
 </body>
 </html>
-
-
-
-
-
