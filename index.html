@@ -6,7 +6,6 @@
   <title>Rose Key Realty Co. | Get a Cash Offer</title>
 
   <!-- Favicon (tab icon) -->
-  <!-- Replace the href with your hosted favicon.png or .ico -->
   <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a">
   <link rel="apple-touch-icon" href="https://yourdomain.com/favicon.png">
   <link rel="shortcut icon" type="image/png" href="https://yourdomain.com/favicon.png">
@@ -42,7 +41,6 @@
       padding:40px 20px;
       overflow:hidden;
     }
-    /* Clean neutral hero background */
     header::before{
       content:"";
       position:absolute; inset:0;
@@ -74,13 +72,9 @@
     }
     h1{ font-size:2.6rem; color:var(--accent); margin-bottom:10px; }
     .sub{ color:#e9e9ea; font-size:1.05rem; max-width:56ch; }
-
     h5{ font-size:2.6rem; color:var(--light); margin-bottom:10px; }
 
-    /* Lead Form Card */
-
-    h5{ font-size:2.6rem; color:var(--light); margin-bottom:10px; }
-    
+    /* Lead Form */
     .card{
       background:#fff;
       border-radius:var(--radius);
@@ -127,6 +121,36 @@
     .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
     .badge{ background:#eaf7f3; color:#064; padding:6px 10px; border-radius:999px; font-weight:600; font-size:.9rem; }
 
+    /* Feature Images + Hover */
+    .feature-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    }
+    .feature:hover .feature-img {
+      transform: scale(1.04);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+      filter: brightness(1.05);
+    }
+    @media(max-width:600px){
+      .feature-img { height: 160px; }
+    }
+
+    /* Fade-in Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Footer */
     footer{
       background:var(--primary); color:#fff; text-align:center;
@@ -142,47 +166,16 @@
       background:var(--primary); color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
 
-    /* Success / error toast */
+    /* Toast */
     .toast{
-      position:fixed; top:18px; right:18px; background:#111; color:#fff; padding:12px 16px; border-radius:10px; box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease; transform:translateY(-6px);
+      position:fixed; top:18px; right:18px; background:#111; color:#fff;
+      padding:12px 16px; border-radius:10px; box-shadow:var(--shadow);
+      opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease;
+      transform:translateY(-6px);
     }
     .toast.show{ opacity:1; pointer-events:auto; transform:none; }
     .toast.success{ background:#0a7f62; }
     .toast.error{ background:#b00020; }
-.feature-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-}
-
-/* Subtle hover zoom & brightness */
-.feature:hover .feature-img {
-  transform: scale(1.04);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
-  filter: brightness(1.05);
-}
-
-@media(max-width:600px){
-  .feature-img { height: 160px; }
-}
-/* Fade-in scroll animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* Triggered state */
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
   </style>
 </head>
 
@@ -191,11 +184,8 @@
   <!-- HERO -->
   <header>
     <div class="hero-wrap">
-      <!-- Left: headline + trust -->
       <div class="hero-copy">
         <div class="brand">
-          <!-- Replace src with your hosted square logo (PNG/SVG) -->
-      
           <h5>Rose Key Realty Co.</h5>
         </div>
         <h1>Sell Your House Fast in Birmingham</h1>
@@ -212,36 +202,25 @@
       <div class="card" role="form" aria-label="Get My Cash Offer">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
-
-        <!-- Replace ACTION with your Formspree endpoint -->
         <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
-          <!-- Honeypot (spam trap) -->
           <input type="text" name="_gotcha" style="display:none">
-
           <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
           <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone">
           <input class="full" type="email" name="email" placeholder="Email (optional)" aria-label="Email">
-
           <input class="full" type="text" name="address" placeholder="Property Address" required aria-label="Property Address">
           <select name="timeline" aria-label="When do you want to sell?">
             <option value="">Timeline</option>
-            <option>ASAP</option>
-            <option>30–60 days</option>
-            <option>60–90 days</option>
-            <option>Just exploring</option>
+            <option>ASAP</option><option>30–60 days</option>
+            <option>60–90 days</option><option>Just exploring</option>
           </select>
           <select name="situation" aria-label="Situation">
             <option value="">Situation</option>
             <option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option>
             <option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
           </select>
-
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
-
-          <!-- where to notify (Formspree will email you at the account you set) -->
           <input type="hidden" name="_subject" value="New Cash Offer Lead - Rose Key Realty Co.">
           <input type="hidden" name="_template" value="table">
-
           <button type="submit" class="cta full">Get My Cash Offer</button>
           <div class="mini">By submitting, you agree to be contacted by phone, text, or email. Reply STOP to opt out.</div>
         </form>
@@ -249,80 +228,49 @@
     </div>
   </header>
 
-<!-- HOW IT WORKS -->
-<section id="how-it-works">
-  <h3>How It Works</h3>
-  <div class="grid">
-
-    <!-- 1️⃣ Checklist / Property Intake -->
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1604014237800-1f3b3bdb0a4c?auto=format&fit=crop&w=800&q=80"
-           alt="Real estate agent holding a checklist clipboard"
-           class="feature-img">
-      <b>1) Tell us about the property</b><br>
-      Share a few details and your preferred timeline.
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <h3>How It Works</h3>
+    <div class="grid">
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1604014237800-1f3b3bdb0a4c?auto=format&fit=crop&w=800&q=80"
+             alt="Real estate agent holding a checklist clipboard" class="feature-img">
+        <b>1) Tell us about the property</b><br>Share a few details and your preferred timeline.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80"
+             alt="Agent reviewing documents and calculating a cash offer" class="feature-img">
+        <b>2) Get a fair cash offer</b><br>We evaluate condition and comps — no obligations, no fees.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1581092334362-1f9c9b1d7a8e?auto=format&fit=crop&w=800&q=80"
+             alt="Happy clients shaking hands after closing" class="feature-img">
+        <b>3) You pick the closing date</b><br>We handle the paperwork. Close as fast as 14 days.
+      </div>
     </div>
+  </section>
 
-    <!-- 2️⃣ Offer Evaluation -->
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80"
-           alt="Agent reviewing documents and calculating a cash offer"
-           class="feature-img">
-      <b>2) Get a fair cash offer</b><br>
-      We evaluate condition and comps — no obligations, no fees.
+  <!-- WHY CHOOSE -->
+  <section id="services">
+    <h3>Why Choose Rose Key</h3>
+    <div class="grid">
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80"
+             alt="Local real estate agent meeting with homeowners" class="feature-img">
+        <b>Local Team</b><br>Born and raised in Alabama markets — quick, reliable communication.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1600585154154-3d27b4d0b2c3?auto=format&fit=crop&w=800&q=80"
+             alt="House exterior showing renovation potential" class="feature-img">
+        <b>As-Is Purchases</b><br>No repairs or cleaning needed; we take on the work.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1572120360610-d971b9b78825?auto=format&fit=crop&w=800&q=80"
+             alt="Couple reviewing real estate options with agent" class="feature-img">
+        <b>Flexible Options</b><br>Cash offer or list traditionally to maximize price — your call.
+      </div>
     </div>
-
-    <!-- 3️⃣ Closing Handshake -->
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1581092334362-1f9c9b1d7a8e?auto=format&fit=crop&w=800&q=80"
-           alt="Happy clients shaking hands after closing"
-           class="feature-img">
-      <b>3) You pick the closing date</b><br>
-      We handle the paperwork. Close as fast as 14 days.
-    </div>
-
-  </div>
-</section>
-
-<!-- WHY CHOOSE ROSE KEY -->
-<section id="services">
-  <h3>Why Choose Rose Key</h3>
-  <div class="grid">
-
-    <!-- 1️⃣ Local Team -->
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80"
-           alt="Local real estate agent meeting with homeowners"
-           class="feature-img">
-      <b>Local Team</b><br>
-      Born and raised in Alabama markets — quick, reliable communication.
-    </div>
-
-    <!-- 2️⃣ As-Is Purchases -->
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1600585154154-3d27b4d0b2c3?auto=format&fit=crop&w=800&q=80"
-           alt="House exterior showing renovation potential"
-           class="feature-img">
-      <b>As-Is Purchases</b><br>
-      No repairs or cleaning needed; we take on the work.
-    </div>
-
-    <!-- 3️⃣ Flexible Options -->
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80"
-           alt="Couple reviewing real estate options with agent"
-           class="feature-img">
-      <b>Flexible Options</b><br>
-      Cash offer or list traditionally to maximize price — your call.
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
+  </section>
 
   <!-- ABOUT -->
   <section id="about">
@@ -337,69 +285,49 @@
     <a href="tel:+12058528786">(205) 852-8786</a>
   </footer>
 
-  <!-- Sticky quick contact -->
+  <!-- Sticky Contact -->
   <div class="sticky-contact">
     <a href="tel:+12058528786">📞 Call</a>
     <a href="mailto:deals@rosekeyrealtyco.com">✉️ Email</a>
   </div>
 
-  <!-- Tiny JS: prevent empty submits, show toast, AJAX submit to keep user on page -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <script>
+    // Toast + Form handling
     const form = document.getElementById('offerForm');
     const toast = document.getElementById('toast');
-
     function showToast(msg, type='success'){
       toast.textContent = msg;
       toast.className = 'toast ' + type + ' show';
       setTimeout(()=> toast.className='toast', 3800);
     }
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      // Basic validation
       const data = new FormData(form);
       if(!data.get('name') || !data.get('phone') || !data.get('address')){
         showToast('Please fill name, phone, and property address.', 'error');
         return;
       }
       const endpoint = form.getAttribute('action');
-      if(!endpoint || endpoint.includes('REPLACE_WITH_YOUR_ENDPOINT')){
-        showToast('Form endpoint not set. Add your Formspree URL in the form action.', 'error');
-        return;
-      }
-
       try{
         const res = await fetch(endpoint, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
-        if(res.ok){
-          form.reset();
-          showToast('Thanks! We received your info and will reach out shortly.','success');
-        } else {
-          showToast('There was an issue submitting the form. Please try again.','error');
-        }
-      }catch(err){
-        showToast('Network error — please try again.','error');
-      }
+        if(res.ok){ form.reset(); showToast('Thanks! We received your info and will reach out shortly.','success'); }
+        else showToast('There was an issue submitting the form. Please try again.','error');
+      }catch(err){ showToast('Network error — please try again.','error'); }
     });
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
