@@ -169,6 +169,18 @@
 @media(max-width:600px){
   .feature-img { height: 160px; }
 }
+/* Fade-in scroll animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Triggered state */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
   </style>
@@ -373,6 +385,7 @@
   </script>
 </body>
 </html>
+
 
 
 
