@@ -171,7 +171,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <div class="brand">🌹 Rose Key Realty Co.</div>
+      <div class="brand">🗝️ Rose Key Realty Co.</div>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
         <a href="#services">Why Choose Us</a>
@@ -196,21 +196,30 @@
         </div>
       </div>
 
-      <div class="card fade-in">
+     <div class="card fade-in">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
-        <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
-          <input type="text" name="_gotcha" style="display:none">
+        <!-- Updated to Web3Forms -->
+        <form class="hero-form" id="offerForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
+          <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="tel" name="phone" placeholder="Phone" required>
           <input class="full" type="email" name="email" placeholder="Email (optional)">
           <input class="full" type="text" name="address" placeholder="Property Address" required>
-          <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
-          <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
+          <select name="timeline">
+            <option value="">Timeline</option>
+            <option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option>
+          </select>
+          <select name="situation">
+            <option value="">Situation</option>
+            <option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option>
+            <option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
+          </select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
           <button type="submit" class="cta full">Get My Cash Offer</button>
-          <div class="sub">By submitting, you agree to be contacted by phone, text, or email.</div>
         </form>
+       <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
       </div>
     </div>
   </header>
@@ -300,8 +309,9 @@
     <div class="card" style="margin-top:24px;">
       <h2>Get Early Access to Properties</h2>
       <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
-      <form class="hero-form" id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
-        <input type="text" name="_gotcha" style="display:none">
+       <form class="hero-form" id="buyersForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
+        <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
         <input type="text" name="buyer_name" placeholder="Full Name" required>
         <input type="email" name="buyer_email" placeholder="Email" required>
         <input type="tel" name="buyer_phone" placeholder="Phone Number">
@@ -367,4 +377,5 @@
   </script>
 </body>
 </html>
+
 
