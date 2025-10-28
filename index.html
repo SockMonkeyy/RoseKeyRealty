@@ -307,8 +307,9 @@ function showToast(msg, type = 'success') {
 document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const data = new FormData(form);
-    const endpoint = form.action;
+
+    const formData = new FormData(form);
+    const jsonData = Object.fromEntries(formData.entries());
 
     const requiredInputs = form.querySelectorAll('[required]');
     for (let input of requiredInputs) {
@@ -319,21 +320,24 @@ document.querySelectorAll('form').forEach(form => {
     }
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
       });
 
       if (res.ok) {
         form.reset();
-        showToast('Thanks! Your information has been received.', 'success');
+        showToast('✅ Thanks! Your information has been received.', 'success');
       } else {
         const errorData = await res.json();
-        showToast(errorData.message || 'Submission failed. Please try again.', 'error');
+        showToast(errorData.message || '❌ Submission failed. Please try again.', 'error');
       }
     } catch (error) {
-      showToast('Network error — please try again.', 'error');
+      showToast('⚠️ Network error — please try again.', 'error');
     }
   });
 });
@@ -350,6 +354,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 fadeEls.forEach(el => observer.observe(el));
-  </script>
+</script>
 </body>
 </html>
+
