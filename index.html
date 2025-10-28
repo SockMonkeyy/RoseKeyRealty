@@ -297,27 +297,17 @@
 
   <!-- JS for Forms + Animation -->
   <script>
-const toast = document.getElementById('toast');
-function showToast(msg, type = 'success') {
-  toast.textContent = msg;
-  toast.className = 'toast ' + type + ' show';
-  setTimeout(() => (toast.className = 'toast'), 4000);
-}
-
 document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const formData = new FormData(form);
     const jsonData = Object.fromEntries(formData.entries());
+    const submitButton = form.querySelector('button[type="submit"]');
 
-    const requiredInputs = form.querySelectorAll('[required]');
-    for (let input of requiredInputs) {
-      if (!input.value.trim()) {
-        showToast('Please complete all required fields.', 'error');
-        return;
-      }
-    }
+    // Disable button to prevent double-clicks
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
 
     try {
       const res = await fetch(form.action, {
@@ -330,14 +320,34 @@ document.querySelectorAll('form').forEach(form => {
       });
 
       if (res.ok) {
-        form.reset();
-        showToast('✅ Thanks! Your information has been received.', 'success');
+        const formParent = form.parentElement;
+        const confirmation = document.createElement('div');
+        confirmation.className = 'confirmation';
+        confirmation.innerHTML = `
+          <div style="text-align:center;padding:20px;">
+            <h3 style="color:#0a7f62;margin-bottom:8px;">✅ Thank you!</h3>
+            <p>We’ve received your submission and will contact you shortly.</p>
+          </div>
+        `;
+        formParent.replaceChild(confirmation, form);
+
+        // Optionally revert form after 5s (remove this block if you want permanent confirmation)
+        setTimeout(() => {
+          formParent.innerHTML = '';
+          form.reset();
+          formParent.appendChild(form);
+          submitButton.disabled = false;
+          submitButton.textContent = 'Submit';
+        }, 5000);
       } else {
         const errorData = await res.json();
-        showToast(errorData.message || '❌ Submission failed. Please try again.', 'error');
+        alert(errorData.message || 'Submission failed. Please try again.');
       }
     } catch (error) {
-      showToast('⚠️ Network error — please try again.', 'error');
+      alert('Network error — please try again.');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit';
     }
   });
 });
@@ -355,7 +365,9 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 fadeEls.forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
+
 
 
