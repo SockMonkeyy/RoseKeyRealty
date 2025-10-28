@@ -6,7 +6,6 @@
   <title>Rose Key Realty Co. | Get a Cash Offer</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗝️</text></svg>">
-
   <style>
     :root{
       --primary:#0a7f62;
@@ -25,15 +24,8 @@
       color:var(--text);
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
-       }
-  .sticky-contact a {
-    background: linear-gradient(135deg, var(--accent), #ffd84d);
-    color: #000;
-    font-weight: 700;
-  }
-  .sticky-contact a:hover {
-    transform: scale(1.05);
-  }
+    }
+
     nav{
       background:#fff;
       box-shadow:0 2px 8px rgba(0,0,0,.05);
@@ -77,18 +69,6 @@
     h5{font-size:2.6rem;color:#fff;margin-bottom:10px;}
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
     .badge{background:#eaf7f3;color:#064;padding:6px 10px;border-radius:999px;font-weight:600;font-size:.9rem;}
-    @media (max-width: 600px) {
-  .card {
-    padding: 20px;
-  }
-  .hero-copy h1 {
-    font-size: 2rem;
-  }
-  .hero-copy p {
-    font-size: 0.95rem;
-  }
-  }
-
 
     .card{
       background:#fff;border-radius:var(--radius);
@@ -124,11 +104,12 @@
       background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:22px;
     }
     .feature b{color:#000;}
+
     .feature-img{
       width:100%;height:200px;object-fit:cover;
       border-radius:10px;margin-bottom:12px;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      transition:transform .35s ease,filter .35s ease;
+      transition:transform .35s ease,box-shadow .35s ease,filter .35s ease;
     }
     .feature:hover .feature-img{transform:scale(1.04);filter:brightness(1.05);}
     @media(max-width:600px){.feature-img{height:150px;}}
@@ -148,31 +129,39 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
-    .trust-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  font-size: 0.9rem;
-  color: var(--muted);
+
+    .toast{
+      position:fixed;top:18px;right:18px;background:#111;color:#fff;
+      padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);
+      opacity:0;pointer-events:none;
+      transition:opacity .2s ease,transform .2s ease;
+      transform:translateY(-6px);
+    }
+    .toast.show{opacity:1;pointer-events:auto;transform:none;}
+    .toast.success{background:#0a7f62;}
+    .toast.error{background:#b00020;}
+    /* FAQ Section Spacing */
+#faq {
+  background: #f7f7f8;
+  padding: 60px 20px;
+  margin: 80px auto;       /* Adds breathing room above and below */
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 16px;
 }
-.trust-badge strong {
-  color: var(--primary);
+#faq h3 {
+  text-align: center;
+  margin-bottom: 30px;
 }
-.trust-icon {
-  width: 40px;
-  height: auto;
-  filter: grayscale(0%) brightness(1);
-  opacity: 0.9;
+#faq .feature {
+  margin: 0 auto 28px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  max-width: 900px;
 }
-@media (max-width: 600px) {
-  .trust-badge {
-    flex-direction: column;
-    text-align: center;
-  }
-}
+#faq .feature:last-child { margin-bottom: 0; }
 
   </style>
 </head>
@@ -182,12 +171,12 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <div class="brand">🗝️ Rose Key Realty Co.</div>
+      <div class="brand">🌹 Rose Key Realty Co.</div>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
         <a href="#services">Why Choose Us</a>
-        <a href="#testimonials">Testimonials</a>
         <a href="#buyers-list">For Investors</a>
+        <a href="#testimonials">Testimonials</a>
       </div>
     </div>
   </nav>
@@ -210,32 +199,18 @@
       <div class="card fade-in">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
-        <!-- Updated to Web3Forms -->
-        <form class="hero-form" id="offerForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
-          <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
-
+        <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
+          <input type="text" name="_gotcha" style="display:none">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="tel" name="phone" placeholder="Phone" required>
           <input class="full" type="email" name="email" placeholder="Email (optional)">
           <input class="full" type="text" name="address" placeholder="Property Address" required>
-          <select name="timeline">
-            <option value="">Timeline</option>
-            <option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option>
-          </select>
-          <select name="situation">
-            <option value="">Situation</option>
-            <option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option>
-            <option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
-          </select>
+          <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
+          <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
           <button type="submit" class="cta full">Get My Cash Offer</button>
+          <div class="sub">By submitting, you agree to be contacted by phone, text, or email.</div>
         </form>
-        <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
-        <!-- Trust Badge / Testimonial -->
-    <div class="trust-badge">
-      <p>Trusted by <strong>50+ Birmingham homeowners</strong> — rated A+ for integrity and speed.</p>
-      </div>
       </div>
     </div>
   </header>
@@ -297,6 +272,27 @@
     </div>
   </section>
 
+<!-- FAQ -->
+<section id="faq" class="fade-in">
+  <h3>Frequently Asked Questions</h3>
+
+  <div class="feature">
+    <b>Do I need to make repairs before selling?</b>
+    <p>No — we buy properties as-is. You don’t need to spend a dime fixing or cleaning anything.</p>
+  </div>
+
+  <div class="feature">
+    <b>How quickly can I close?</b>
+    <p>Most of our sellers close in as little as 14–30 days, depending on title and paperwork.</p>
+  </div>
+
+  <div class="feature">
+    <b>Do I have to accept your offer?</b>
+    <p>Not at all. Our offers are completely free and come with zero obligation.</p>
+  </div>
+</section>
+
+
   <!-- BUYERS LIST -->
   <section id="buyers-list" class="fade-in">
     <h3>Join Our Buyers List</h3>
@@ -304,11 +300,8 @@
     <div class="card" style="margin-top:24px;">
       <h2>Get Early Access to Properties</h2>
       <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
-      <!-- Updated to Web3Forms -->
-      <form class="hero-form" id="buyersForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
-        <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
-
+      <form class="hero-form" id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
+        <input type="text" name="_gotcha" style="display:none">
         <input type="text" name="buyer_name" placeholder="Full Name" required>
         <input type="email" name="buyer_email" placeholder="Email" required>
         <input type="tel" name="buyer_phone" placeholder="Phone Number">
@@ -344,8 +337,22 @@
     <a href="mailto:deals@rosekeyrealtyco.com">✉️ Email</a>
   </div>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <script>
-    // Fade-in effect
+    const toast=document.getElementById('toast');
+    function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
+    document.querySelectorAll('form').forEach(form=>{
+      form.addEventListener('submit',async e=>{
+        e.preventDefault();
+        const data=new FormData(form);
+        try{
+          const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+          if(res.ok){form.reset();showToast('Thanks! Your information has been received.');}
+          else showToast('Submission failed. Try again.','error');
+        }catch{showToast('Network error — please try again.','error');}
+      });
+    });
     const fadeEls=document.querySelectorAll('.fade-in');
     const observer=new IntersectionObserver(entries=>{
       entries.forEach((entry,i)=>{
@@ -357,22 +364,6 @@
       });
     },{threshold:0.2});
     fadeEls.forEach(el=>observer.observe(el));
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Rose Key Realty Co.",
-  "image": "https://rosekeyrealtyco.com/logo.png",
-  "telephone": "+12058528786",
-  "email": "deals@rosekeyrealtyco.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Birmingham",
-    "addressRegion": "AL",
-    "addressCountry": "US"
-  },
-  "url": "https://rosekeyrealtyco.com"
-}
   </script>
 </body>
 </html>
