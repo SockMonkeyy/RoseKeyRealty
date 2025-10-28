@@ -66,18 +66,37 @@
 
     a.button {
       display: inline-block;
-      background: var(--primary);
-      color: #fff;
+      background: linear-gradient(135deg, var(--accent) 0%, #ffd84d 100%);
+      color: #000;
       text-decoration: none;
       padding: 14px 24px;
       border-radius: 12px;
       font-weight: 700;
-      transition: background .2s ease, transform .15s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(245, 183, 0, 0.3);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    a.button::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: rgba(255,255,255,0.4);
+      transform: skewX(-20deg);
+      animation: shimmer 3s infinite;
     }
 
     a.button:hover {
-      background: #06654c;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(245, 183, 0, 0.45);
+    }
+
+    @keyframes shimmer {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
     }
 
     .icon {
@@ -120,10 +139,11 @@
 
 <body>
   <div class="card">
+    <img class="logo" src="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a" alt="Rose Key Realty Co. Logo" />
     <div class="icon">✔</div>
     <h1>Thank You!</h1>
     <p>Your information has been successfully submitted.<br>
-       A member of the <strong>Rose Key Realty Co.</strong> team will reach out to you shortly. Thank you.</p>
+       A member of the <strong>Rose Key Realty Co.</strong> team will reach out to you shortly.</p>
     <a href="https://rosekeyrealtyco.com" class="button">Return Home</a>
   </div>
 
