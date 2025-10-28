@@ -3,16 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rose Key Realty Co. | Unlocking Opportunity</title>
+  <title>Rose Key Realty Co. | Get a Cash Offer</title>
+
+  <!-- Favicon (tab icon) -->
+  <!-- Replace the href with your hosted favicon.png or .ico -->
+  <link rel="icon" type="image/png" href="https://yourdomain.com/favicon.png">
+  <link rel="apple-touch-icon" href="https://yourdomain.com/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="https://yourdomain.com/favicon.png">
+
   <style>
-    :root {
+    :root{
       --primary:#0a7f62;
       --accent:#f5b700;
       --dark:#111;
       --light:#f7f7f8;
       --text:#222;
-      --muted:#555;
+      --muted:#666;
       --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.10);
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -20,167 +28,266 @@
       background:var(--light);
       color:var(--text);
       line-height:1.6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
+
+    /* Header / Hero */
     header{
-      background:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       position:relative;
-      height:75vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-    }
-    header::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.55);
-    }
-    header .hero{
-      position:relative;
-      z-index:2;
-      max-width:700px;
-      padding:0 20px;
-    }
-    h1{
-      font-size:2.5rem;
-      margin-bottom:.5rem;
-      color:var(--accent);
-    }
-    h2{
-      color:var(--primary);
-      margin-bottom:.6rem;
-    }
-    p{margin-bottom:1rem}
-    .cta{
-      display:inline-block;
-      background:var(--primary);
-      color:#fff;
-      padding:12px 26px;
-      border-radius:var(--radius);
-      font-weight:600;
-      text-decoration:none;
-      transition:all .25s ease;
-    }
-    .cta:hover{background:#06654c;transform:translateY(-2px)}
-    .cta.alt{
-      background:var(--accent);
-      color:#000;
-      margin-left:8px;
-    }
-    section{
-      max-width:1000px;
-      margin:60px auto;
-      padding:0 20px;
-    }
-    .grid{
+      min-height:78vh;
       display:grid;
-      gap:30px;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      place-items:center;
+      color:#fff;
+      text-align:left;
+      padding:40px 20px;
+      overflow:hidden;
     }
+    /* Clean neutral hero background */
+    header::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop')
+        center/cover no-repeat;
+      filter: saturate(90%) contrast(105%);
+      z-index:1;
+    }
+    .hero-wrap{
+      position:relative; z-index:2;
+      width:100%;
+      max-width:1100px;
+      display:grid; gap:36px;
+      grid-template-columns:1.3fr 1fr;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .hero-wrap{ grid-template-columns:1fr; text-align:center; }
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:14px; margin-bottom:14px;
+    }
+    .brand img.logo{
+      width:44px; height:44px; border-radius:10px; object-fit:contain;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,.35));
+    }
+    h1{ font-size:2.6rem; color:var(--accent); margin-bottom:10px; }
+    .sub{ color:#e9e9ea; font-size:1.05rem; max-width:56ch; }
+
+    /* Lead Form Card */
     .card{
       background:#fff;
       border-radius:var(--radius);
-      box-shadow:0 6px 20px rgba(0,0,0,.06);
-      padding:30px;
-      transition:transform .2s;
+      box-shadow:var(--shadow);
+      padding:26px;
+      color:#000;
     }
-    .card:hover{transform:translateY(-4px)}
-    ul{padding-left:20px;margin-bottom:0}
+    .card h2{
+      color:var(--primary); font-size:1.4rem; margin-bottom:4px;
+    }
+    .trust{ font-size:.9rem; color:var(--muted); margin-bottom:16px; }
+    form.hero-form{
+      display:grid; gap:12px;
+      grid-template-columns:1fr 1fr;
+    }
+    form.hero-form input, form.hero-form select, form.hero-form textarea{
+      width:100%; padding:12px 14px; border:1px solid #dedede;
+      border-radius:12px; font-size:1rem; background:#fff;
+      outline:none; transition:border .2s ease, box-shadow .2s ease;
+    }
+    form.hero-form input:focus, form.hero-form textarea:focus, form.hero-form select:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(10,127,98,.15);
+    }
+    form.hero-form textarea{ grid-column:1/-1; min-height:84px; resize:vertical; }
+    .full{ grid-column:1/-1; }
+
+    .cta{
+      background:var(--primary); color:#fff; border:none; cursor:pointer;
+      padding:14px 20px; border-radius:12px; font-weight:700;
+      transition:transform .15s ease, background .2s ease;
+    }
+    .cta:hover{ background:#06654c; transform:translateY(-2px); }
+    .mini{ font-size:.85rem; color:var(--muted); margin-top:6px; }
+
+    /* Sections */
+    section{ max-width:1100px; margin:56px auto; padding:0 20px; }
+    h3{ color:var(--primary); margin-bottom:8px; font-size:1.4rem; }
+    .grid{ display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+    .feature{
+      background:#fff; border-radius:14px; box-shadow:var(--shadow); padding:22px;
+    }
+    .feature b{ color:#000; }
+    .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .badge{ background:#eaf7f3; color:#064; padding:6px 10px; border-radius:999px; font-weight:600; font-size:.9rem; }
+
+    /* Footer */
     footer{
-      background:#0a7f62;
-      color:#fff;
-      text-align:center;
-      padding:30px 15px;
-      font-size:14px;
-      margin-top:60px;
+      background:var(--primary); color:#fff; text-align:center;
+      padding:28px 16px; margin-top:64px; font-size:.95rem;
     }
-    footer a{color:#fff;text-decoration:underline}
+    footer a{ color:#fff; text-decoration:underline; }
+
+    /* Sticky contact */
     .sticky-contact{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      z-index:50;
+      position:fixed; bottom:18px; right:18px; display:flex; flex-direction:column; gap:8px; z-index:30;
     }
     .sticky-contact a{
-      background:var(--primary);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      box-shadow:0 4px 10px rgba(0,0,0,.2);
-      transition:all .25s ease;
+      background:var(--primary); color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
-    .sticky-contact a:hover{background:#06654c;transform:translateY(-2px)}
-    @media(max-width:600px){
-      header{height:60vh}
-      h1{font-size:2rem}
+
+    /* Success / error toast */
+    .toast{
+      position:fixed; top:18px; right:18px; background:#111; color:#fff; padding:12px 16px; border-radius:10px; box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease; transform:translateY(-6px);
     }
+    .toast.show{ opacity:1; pointer-events:auto; transform:none; }
+    .toast.success{ background:#0a7f62; }
+    .toast.error{ background:#b00020; }
   </style>
 </head>
+
 <body>
 
+  <!-- HERO -->
   <header>
-    <div class="hero">
-      <h1>Rose Key Realty Co.</h1>
-      <p>Unlocking opportunity — one property at a time.<br>
-         Serving Birmingham and surrounding areas.</p>
-      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSepJ2Hj0Vf1diRYO_KmvowTGNeQoiiXVJD6pTuLlLT2VKER7A/viewform" target="_blank">Get a Cash Offer / Join Buyer List</a>
-      <a class="cta alt" href="#contact">Contact Us</a>
+    <div class="hero-wrap">
+      <!-- Left: headline + trust -->
+      <div class="hero-copy">
+        <div class="brand">
+          <!-- Replace src with your hosted square logo (PNG/SVG) -->
+          <img class="logo" src="https://yourdomain.com/rosekey-logo-square.png" alt="Rose Key Realty Co.">
+          <strong>Rose Key Realty Co.</strong>
+        </div>
+        <h1>Sell Your House Fast in Birmingham</h1>
+        <p class="sub">Local, fair, and flexible. Get a cash offer with <b>no repairs</b>, <b>no fees</b>, and <b>you choose the closing date</b>. Trusted by Alabama homeowners and investors.</p>
+        <div class="badges">
+          <span class="badge">No Repairs Needed</span>
+          <span class="badge">Close in 14–30 Days</span>
+          <span class="badge">As-Is Offers</span>
+          <span class="badge">Local Team</span>
+        </div>
+      </div>
+
+      <!-- Right: form card -->
+      <div class="card" role="form" aria-label="Get My Cash Offer">
+        <h2>Get My Cash Offer</h2>
+        <div class="trust">Quick form — we’ll follow up within one business day.</div>
+
+        <!-- Replace ACTION with your Formspree endpoint -->
+        <form class="hero-form" id="offerForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_ENDPOINT" method="POST" novalidate>
+          <!-- Honeypot (spam trap) -->
+          <input type="text" name="_gotcha" style="display:none">
+
+          <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+          <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone">
+          <input class="full" type="email" name="email" placeholder="Email (optional)" aria-label="Email">
+
+          <input class="full" type="text" name="address" placeholder="Property Address" required aria-label="Property Address">
+          <select name="timeline" aria-label="When do you want to sell?">
+            <option value="">Timeline</option>
+            <option>ASAP</option>
+            <option>30–60 days</option>
+            <option>60–90 days</option>
+            <option>Just exploring</option>
+          </select>
+          <select name="situation" aria-label="Situation">
+            <option value="">Situation</option>
+            <option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option>
+            <option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
+          </select>
+
+          <textarea name="notes" placeholder="Anything else we should know?"></textarea>
+
+          <!-- where to notify (Formspree will email you at the account you set) -->
+          <input type="hidden" name="_subject" value="New Cash Offer Lead - Rose Key Realty Co.">
+          <input type="hidden" name="_template" value="table">
+
+          <button type="submit" class="cta full">Get My Cash Offer</button>
+          <div class="mini">By submitting, you agree to be contacted by phone, text, or email. Reply STOP to opt out.</div>
+        </form>
+      </div>
     </div>
   </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      At <strong>Rose Key Realty Co.</strong>, we help homeowners and investors reach their real estate goals with honesty and transparency.
-      Whether you're ready to sell for cash or list traditionally for top dollar, our team will guide you through every step.
-    </p>
-  </section>
-
-  <section id="services">
-    <h2>What We Offer</h2>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <h3>How It Works</h3>
     <div class="grid">
-      <div class="card">
-        <h3>💰 Fast Cash Offers</h3>
-        <p>Sell your property as-is with no repairs, showings, or agent fees. Close in as little as two weeks.</p>
-      </div>
-      <div class="card">
-        <h3>🏠 Traditional Listings</h3>
-        <p>Maximize your return through expert marketing, professional photos, and full exposure on the MLS.</p>
-      </div>
-      <div class="card">
-        <h3>🤝 Investor Partnerships</h3>
-        <p>Join our buyer network to access exclusive off-market deals and investment opportunities in Alabama.</p>
-      </div>
+      <div class="feature"><b>1) Tell us about the property</b><br>Share a few details and your preferred timeline.</div>
+      <div class="feature"><b>2) Get a fair cash offer</b><br>We evaluate condition and comps — no obligations, no fees.</div>
+      <div class="feature"><b>3) You pick the closing date</b><br>We handle the paperwork. Close as fast as 14 days.</div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>We’d love to connect! Reach out today to discuss your property or investment goals.</p>
-    <p>
-      📞 <a href="tel:+12058528786">(205) 852-8786</a><br>
-      ✉️ <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a>
-    </p>
-    <a class="cta alt" href="https://docs.google.com/forms/d/e/1FAIpQLSepJ2Hj0Vf1diRYO_KmvowTGNeQoiiXVJD6pTuLlLT2VKER7A/viewform" target="_blank">Submit Your Property Info</a>
+  <!-- WHAT WE OFFER -->
+  <section id="services">
+    <h3>Why Choose Rose Key</h3>
+    <div class="grid">
+      <div class="feature"><b>Local Team</b><br>Born and raised in Alabama markets — quick, reliable communication.</div>
+      <div class="feature"><b>As-Is Purchases</b><br>No repairs or cleaning needed; we take on the work.</div>
+      <div class="feature"><b>Flexible Options</b><br>Cash offer or list traditionally to maximize price — your call.</div>
+    </div>
   </section>
 
+  <!-- ABOUT -->
+  <section id="about">
+    <h3>About Us</h3>
+    <p>At <b>Rose Key Realty Co.</b> we help homeowners unlock opportunity — whether that’s a quick, hassle-free cash sale or a full-service listing for top dollar. We’re transparent, local, and here to make the process easy.</p>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL<br>
-    “Unlocking Opportunity — One Property at a Time.”
+    © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL ·
+    <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a> ·
+    <a href="tel:+12058528786">(205) 852-8786</a>
   </footer>
 
+  <!-- Sticky quick contact -->
   <div class="sticky-contact">
     <a href="tel:+12058528786">📞 Call</a>
     <a href="mailto:deals@rosekeyrealtyco.com">✉️ Email</a>
   </div>
 
+  <!-- Tiny JS: prevent empty submits, show toast, AJAX submit to keep user on page -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    const form = document.getElementById('offerForm');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg, type='success'){
+      toast.textContent = msg;
+      toast.className = 'toast ' + type + ' show';
+      setTimeout(()=> toast.className='toast', 3800);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Basic validation
+      const data = new FormData(form);
+      if(!data.get('name') || !data.get('phone') || !data.get('address')){
+        showToast('Please fill name, phone, and property address.', 'error');
+        return;
+      }
+      const endpoint = form.getAttribute('action');
+      if(!endpoint || endpoint.includes('REPLACE_WITH_YOUR_ENDPOINT')){
+        showToast('Form endpoint not set. Add your Formspree URL in the form action.', 'error');
+        return;
+      }
+
+      try{
+        const res = await fetch(endpoint, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
+        if(res.ok){
+          form.reset();
+          showToast('Thanks! We received your info and will reach out shortly.','success');
+        } else {
+          showToast('There was an issue submitting the form. Please try again.','error');
+        }
+      }catch(err){
+        showToast('Network error — please try again.','error');
+      }
+    });
+  </script>
 </body>
 </html>
-
