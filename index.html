@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="theme-color" content="#0a7f62">
+  <!-- SEO and Social Sharing Meta Tags -->
+<meta name="description" content="Sell your house fast in Birmingham, AL. Rose Key Realty Co. offers fair cash offers with no repairs, no fees, and flexible closings.">
+<meta name="keywords" content="sell house fast Birmingham, cash home buyers Alabama, Rose Key Realty, we buy houses, real estate Birmingham">
+<meta name="author" content="Rose Key Realty Co.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a7f62">
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="Rose Key Realty Co. | Sell Your House Fast in Birmingham">
+<meta property="og:description" content="Get a fair cash offer with no repairs or fees. Serving Birmingham homeowners with honesty and speed.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:url" content="https://rosekeyrealtyco.com/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card (X) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rose Key Realty Co. | Get a Cash Offer Fast">
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Rose Key Realty Co. | Get a Cash Offer</title>
@@ -25,8 +44,15 @@
       color:var(--text);
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
-    }
-
+       }
+  .sticky-contact a {
+    background: linear-gradient(135deg, var(--accent), #ffd84d);
+    color: #000;
+    font-weight: 700;
+  }
+  .sticky-contact a:hover {
+    transform: scale(1.05);
+  }
     nav{
       background:#fff;
       box-shadow:0 2px 8px rgba(0,0,0,.05);
@@ -71,10 +97,17 @@
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
     .badge{background:#eaf7f3;color:#064;padding:6px 10px;border-radius:999px;font-weight:600;font-size:.9rem;}
     @media (max-width: 600px) {
-      .card { padding: 20px; }
-      .hero-copy h1 { font-size: 2rem; }
-      .hero-copy p { font-size: 0.95rem; }
-    }
+  .card {
+    padding: 20px;
+  }
+  .hero-copy h1 {
+    font-size: 2rem;
+  }
+  .hero-copy p {
+    font-size: 0.95rem;
+  }
+  }
+
 
     .card{
       background:#fff;border-radius:var(--radius);
@@ -102,33 +135,6 @@
     }
     .cta:hover{background:#06654c;transform:translateY(-2px);}
     .mini{font-size:.85rem;color:var(--muted);margin-top:6px;}
-
-    /* ✅ Trust Badge Styles */
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 18px;
-      padding-top: 12px;
-      border-top: 1px solid #eee;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .trust-badge strong {
-      color: #c89666; /* rose gold accent */
-    }
-    .trust-icon {
-      width: 42px;
-      height: auto;
-      filter: grayscale(0%) brightness(1);
-      opacity: 0.9;
-    }
-    @media (max-width: 600px) {
-      .trust-badge {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
 
     section{max-width:1100px;margin:56px auto;padding:0 20px;}
     h3{color:var(--primary);margin-bottom:8px;font-size:1.4rem;}
@@ -161,6 +167,32 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
+    .trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.trust-badge strong {
+  color: var(--primary);
+}
+.trust-icon {
+  width: 40px;
+  height: auto;
+  filter: grayscale(0%) brightness(1);
+  opacity: 0.9;
+}
+@media (max-width: 600px) {
+  .trust-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
   </style>
 </head>
 
@@ -197,7 +229,6 @@
       <div class="card fade-in">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
-
         <!-- Updated to Web3Forms -->
         <form class="hero-form" id="offerForm" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
@@ -219,19 +250,107 @@
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
           <button type="submit" class="cta full">Get My Cash Offer</button>
         </form>
-
         <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
-
-        <!-- ✅ Trust Badge -->
-        <div class="trust-badge">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/BBB_logo.svg/320px-BBB_logo.svg.png" alt="BBB Accredited" class="trust-icon">
-          <p>Trusted by <strong>50+ Birmingham homeowners</strong> — rated A+ for integrity and speed.</p>
-        </div>
+        <!-- Trust Badge / Testimonial -->
+    <div class="trust-badge">
+      <p>Trusted by <strong>50+ Birmingham homeowners</strong> — rated A+ for integrity and speed.</p>
+      </div>
       </div>
     </div>
   </header>
 
-  <!-- ... (rest of your sections remain unchanged) ... -->
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <h3 class="fade-in">How It Works</h3>
+    <div class="grid">
+      <div class="feature fade-in">
+        <img src="https://github.com/user-attachments/assets/9a3b6a9d-91b0-4f49-9e18-0b5418d41d13?auto=compress&cs=tinysrgb&w=800" class="feature-img">
+        <b>1) Tell us about the property</b><br>Share a few details and your preferred timeline.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://github.com/user-attachments/assets/a52c4ce0-abef-4a72-9544-9c1ab963805a?auto=format&fit=crop&w=800&q=80" class="feature-img">
+        <b>2) Get a fair cash offer</b><br>We evaluate condition and comps — no obligations, no fees.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://github.com/user-attachments/assets/549e0b29-3716-467f-82c3-269a4078caf3" class="feature-img">
+        <b>3) You pick the closing date</b><br>We handle the paperwork. Close as fast as 14 days.
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section id="services">
+    <h3 class="fade-in">Why Choose Rose Key</h3>
+    <div class="grid">
+      <div class="feature fade-in">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" class="feature-img">
+        <b>Local Team</b><br>Born and raised in Alabama — quick, reliable communication.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://github.com/user-attachments/assets/404ecf37-1e09-496f-82ef-46a76f0b7ce9?auto=format&fit=crop&w=800&q=80" class="feature-img">
+        <b>As-Is Purchases</b><br>No repairs or cleaning needed; we take on the work.
+      </div>
+      <div class="feature fade-in">
+        <img src="https://github.com/user-attachments/assets/c29fbea5-0326-437a-80b2-151d5822e554?auto=format&fit=crop&w=800&q=80" class="feature-img">
+        <b>Flexible Options</b><br>Cash offer or list traditionally to maximize price — your call.
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="fade-in">
+    <h3>What Homeowners Are Saying</h3>
+    <div class="grid">
+      <div class="feature">
+        <p>“Rose Key made selling my house stress-free. They handled everything and closed in 3 weeks!”</p>
+        <b>– Lisa M., Birmingham, AL</b>
+      </div>
+      <div class="feature">
+        <p>“I inherited a property that needed work. They gave me a fair offer and kept their word.”</p>
+        <b>– David R., Hoover</b>
+      </div>
+      <div class="feature">
+        <p>“Professional, fast, and honest. I’d recommend them to anyone looking to sell fast.”</p>
+        <b>– Karen T., Trussville</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUYERS LIST -->
+  <section id="buyers-list" class="fade-in">
+    <h3>Join Our Buyers List</h3>
+    <p>Investors and cash buyers — get early access to our off-market deals in Birmingham and surrounding areas.</p>
+    <div class="card" style="margin-top:24px;">
+      <h2>Get Early Access to Properties</h2>
+      <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
+      <!-- Updated to Web3Forms -->
+      <form class="hero-form" id="buyersForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
+        <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
+
+        <input type="text" name="buyer_name" placeholder="Full Name" required>
+        <input type="email" name="buyer_email" placeholder="Email" required>
+        <input type="tel" name="buyer_phone" placeholder="Phone Number">
+        <select name="investment_type">
+          <option value="">Investment Type</option>
+          <option>Fix and Flip</option><option>Buy and Hold</option><option>Wholesale Partner</option>
+        </select>
+        <select name="preferred_areas">
+          <option value="">Preferred Areas</option>
+          <option>Birmingham</option><option>Hoover</option><option>Trussville</option><option>Montgomery</option><option>Other</option>
+        </select>
+        <textarea name="criteria" placeholder="Tell us what you’re looking for (price, property type, etc.)"></textarea>
+        <button type="submit" class="cta full">Join the Buyers List</button>
+        <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <h3>About Us</h3>
+    <p>At <b>Rose Key Realty Co.</b> we help homeowners unlock opportunity — whether that’s a quick, hassle-free cash sale or a full-service listing for top dollar.</p>
+  </section>
 
   <footer>
     © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL ·
@@ -257,6 +376,27 @@
       });
     },{threshold:0.2});
     fadeEls.forEach(el=>observer.observe(el));
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Rose Key Realty Co.",
+  "image": "https://rosekeyrealtyco.com/logo.png",
+  "telephone": "+12058528786",
+  "email": "deals@rosekeyrealtyco.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Birmingham",
+    "addressRegion": "AL",
+    "addressCountry": "US"
+  },
+  "url": "https://rosekeyrealtyco.com"
+}
   </script>
 </body>
 </html>
+
+
+
+
+
