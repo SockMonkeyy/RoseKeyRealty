@@ -203,7 +203,7 @@
         </div>
       </div>
 
-      <div class="card fade-in" role="form" aria-label="Get My Cash Offer">
+      <div class="card fade-in" role="form">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
         <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
@@ -212,14 +212,9 @@
           <input type="tel" name="phone" placeholder="Phone" required>
           <input class="full" type="email" name="email" placeholder="Email (optional)">
           <input class="full" type="text" name="address" placeholder="Property Address" required>
-          <select name="timeline">
-            <option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option>
-          </select>
-          <select name="situation">
-            <option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
-          </select>
+          <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
+          <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
-          <input type="hidden" name="_subject" value="New Cash Offer Lead - Rose Key Realty Co.">
           <button type="submit" class="cta full">Get My Cash Offer</button>
           <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
         </form>
@@ -272,7 +267,7 @@
     <h3>Join Our Buyers List</h3>
     <p>Investors and cash buyers — get early access to our off-market deals in Birmingham and surrounding areas.</p>
 
-    <div class="card" role="form" aria-label="Join Our Buyers List" style="margin-top:24px;">
+    <div class="card" role="form" style="margin-top:24px;">
       <h2>Get Early Access to Properties</h2>
       <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
       <form class="hero-form" id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
@@ -291,7 +286,6 @@
           <option>Birmingham</option><option>Hoover</option><option>Trussville</option><option>Montgomery</option><option>Other</option>
         </select>
         <textarea name="criteria" placeholder="Tell us what you’re looking for (price, property type, etc.)"></textarea>
-        <input type="hidden" name="_subject" value="New Buyer Signup - Rose Key Realty Co.">
         <button type="submit" class="cta full">Join the Buyers List</button>
         <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
       </form>
@@ -327,8 +321,31 @@
       setTimeout(()=> toast.className='toast', 3800);
     }
 
-    const handleSubmit = (form) => {
-      form.addEventListener('submit', async e => {
+    // Handle multiple forms (seller + buyer)
+    document.querySelectorAll('form').forEach(form=>{
+      form.addEventListener('submit', async e=>{
         e.preventDefault();
         const data = new FormData(form);
-       
+        try{
+          const res = await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+          if(res.ok){ form.reset(); showToast('Thanks! Your information has been received.'); }
+          else showToast('Submission failed. Try again.','error');
+        }catch{ showToast('Network error — please try again.','error'); }
+      });
+    });
+
+    // Fade-in scroll animation
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach((entry,i)=>{
+        if(entry.isIntersecting){
+          entry.target.style.transitionDelay=`${i*0.15}s`;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.2});
+    fadeEls.forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
