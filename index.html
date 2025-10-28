@@ -98,6 +98,8 @@
     .cta:hover{background:#06654c;transform:translateY(-2px);}
     .mini{font-size:.85rem;color:var(--muted);margin-top:6px;}
 
+    .h-captcha { grid-column: 1 / -1; margin: 10px 0; justify-self: center; }
+
     section{max-width:1100px;margin:56px auto;padding:0 20px;}
     h3{color:var(--primary);margin-bottom:8px;font-size:1.4rem;}
     .grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
@@ -105,12 +107,11 @@
       background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:22px;
     }
     .feature b{color:#000;}
-
     .feature-img{
       width:100%;height:200px;object-fit:cover;
       border-radius:10px;margin-bottom:12px;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      transition:transform .35s ease,box-shadow .35s ease,filter .35s ease;
+      transition:transform .35s ease,filter .35s ease;
     }
     .feature:hover .feature-img{transform:scale(1.04);filter:brightness(1.05);}
     @media(max-width:600px){.feature-img{height:150px;}}
@@ -186,6 +187,10 @@
           <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
           <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
+
+          <!-- hCaptcha -->
+          <div class="h-captcha" data-sitekey="a2caa5e6-3d1e-47b0-8c42-73c89a20cd5a"></div>
+
           <button type="submit" class="cta full">Get My Cash Offer</button>
         </form>
         <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
@@ -212,44 +217,6 @@
     </div>
   </section>
 
-  <!-- WHY CHOOSE -->
-  <section id="services">
-    <h3 class="fade-in">Why Choose Rose Key</h3>
-    <div class="grid">
-      <div class="feature fade-in">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" class="feature-img">
-        <b>Local Team</b><br>Born and raised in Alabama — quick, reliable communication.
-      </div>
-      <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/404ecf37-1e09-496f-82ef-46a76f0b7ce9?auto=format&fit=crop&w=800&q=80" class="feature-img">
-        <b>As-Is Purchases</b><br>No repairs or cleaning needed; we take on the work.
-      </div>
-      <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/c29fbea5-0326-437a-80b2-151d5822e554?auto=format&fit=crop&w=800&q=80" class="feature-img">
-        <b>Flexible Options</b><br>Cash offer or list traditionally to maximize price — your call.
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="fade-in">
-    <h3>What Homeowners Are Saying</h3>
-    <div class="grid">
-      <div class="feature">
-        <p>“Rose Key made selling my house stress-free. They handled everything and closed in 3 weeks!”</p>
-        <b>– Lisa M., Birmingham, AL</b>
-      </div>
-      <div class="feature">
-        <p>“I inherited a property that needed work. They gave me a fair offer and kept their word.”</p>
-        <b>– David R., Hoover</b>
-      </div>
-      <div class="feature">
-        <p>“Professional, fast, and honest. I’d recommend them to anyone looking to sell fast.”</p>
-        <b>– Karen T., Trussville</b>
-      </div>
-    </div>
-  </section>
-
   <!-- BUYERS LIST -->
   <section id="buyers-list" class="fade-in">
     <h3>Join Our Buyers List</h3>
@@ -271,6 +238,10 @@
           <option>Birmingham</option><option>Hoover</option><option>Trussville</option><option>Montgomery</option><option>Other</option>
         </select>
         <textarea name="criteria" placeholder="Tell us what you’re looking for (price, property type, etc.)"></textarea>
+
+        <!-- hCaptcha -->
+        <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY_HERE"></div>
+
         <button type="submit" class="cta full">Join the Buyers List</button>
         <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
       </form>
@@ -296,6 +267,7 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script>
     const toast=document.getElementById('toast');
     function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
@@ -324,8 +296,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
