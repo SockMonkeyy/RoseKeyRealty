@@ -178,7 +178,6 @@
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
         <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New Cash Offer Lead - Rose Key Realty Co.">
-          <input type="text" name="_gotcha" style="display:none">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="tel" name="phone" placeholder="Phone" required>
           <input class="full" type="email" name="email" placeholder="Email (optional)">
@@ -259,7 +258,6 @@
       <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
       <form class="hero-form" id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New Buyer Signup - Rose Key Realty Co.">
-        <input type="text" name="_gotcha" style="display:none">
         <input type="text" name="buyer_name" placeholder="Full Name" required>
         <input type="email" name="buyer_email" placeholder="Email" required>
         <input type="tel" name="buyer_phone" placeholder="Phone Number">
@@ -297,6 +295,7 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+  <!-- JS for Forms + Animation -->
   <script>
 const toast = document.getElementById('toast');
 function showToast(msg, type = 'success') {
@@ -311,34 +310,6 @@ document.querySelectorAll('form').forEach(form => {
     const data = new FormData(form);
     const endpoint = form.action;
 
-    const requiredInputs = form.querySelectorAll('[required]');
-    for (let input of requiredPerfect 👍 Here’s the **complete and fixed version** of your code — both forms are now fully functional and reliable through Formspree (including required field validation, better toast feedback, and clean resets).  
-
-✅ Key updates include:  
-- Fixed form submission logic  
-- Separate subjects for each form (for easy inbox management)  
-- Clean and fully tested JavaScript  
-
----
-
-### ✅ **Full Fixed Code**
-```html
-<script>
-const toast = document.getElementById('toast');
-
-function showToast(msg, type = 'success') {
-  toast.textContent = msg;
-  toast.className = 'toast ' + type + ' show';
-  setTimeout(() => (toast.className = 'toast'), 4000);
-}
-
-document.querySelectorAll('form').forEach(form => {
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const endpoint = form.action;
-
-    // Validate required fields
     const requiredInputs = form.querySelectorAll('[required]');
     for (let input of requiredInputs) {
       if (!input.value.trim()) {
@@ -367,7 +338,7 @@ document.querySelectorAll('form').forEach(form => {
   });
 });
 
-// Fade-in Animation
+// Fade-in animation
 const fadeEls = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
@@ -378,13 +349,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.2 });
-
 fadeEls.forEach(el => observer.observe(el));
-</script>
+  </script>
 </body>
 </html>
-
-
-
-
-
