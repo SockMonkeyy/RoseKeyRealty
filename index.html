@@ -95,7 +95,8 @@
       padding:14px 20px;border-radius:12px;font-weight:700;
       transition:transform .15s ease,background .2s ease;
     }
-    .cta:hover{background:#06654c;transform:translateY(-2px);}
+    .cta:disabled{background:#ccc;cursor:not-allowed;}
+    .cta:hover:not(:disabled){background:#06654c;transform:translateY(-2px);}
     .mini{font-size:.85rem;color:var(--muted);margin-top:6px;}
 
     .h-captcha { grid-column: 1 / -1; margin: 10px 0; justify-self: center; }
@@ -127,7 +128,7 @@
     </div>
   </nav>
 
-   <!-- HERO -->
+  <!-- HERO -->
   <header>
     <div class="hero-wrap">
       <div class="hero-copy fade-in">
@@ -252,7 +253,7 @@
 </section>
 
 
- <!-- BUYERS LIST -->
+<!-- BUYERS LIST -->
   <section id="buyers-list" class="fade-in">
     <h3>Join Our Buyers List</h3>
     <p>Investors and cash buyers — get early access to our off-market deals in Birmingham and surrounding areas.</p>
