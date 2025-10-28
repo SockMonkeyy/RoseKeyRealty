@@ -99,15 +99,7 @@
     .feature{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:22px;}
     .feature b{color:#000;}
 
-    .feature-img{
-      width:100%;height:200px;object-fit:cover;border-radius:10px;
-      margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      transition:transform .35s ease,filter .35s ease;
-    }
-    .feature:hover .feature-img{transform:scale(1.04);filter:brightness(1.05);}
-    @media(max-width:600px){.feature-img{height:150px;}}
-
-    /* FAQ styling */
+    /* FAQ Section */
     #faq {
       background:var(--faq-bg);
       padding:60px 20px;
@@ -115,15 +107,40 @@
       border-top:1px solid #e0e0e0;
       border-bottom:1px solid #e0e0e0;
     }
-    #faq .feature {
-      margin:0 auto 28px;
+    .faq-item {
       background:#fff;
       border-radius:12px;
-      padding:20px 24px;
-      box-shadow:0 2px 12px rgba(0,0,0,0.05);
+      margin:0 auto 20px;
       max-width:900px;
+      box-shadow:0 2px 12px rgba(0,0,0,0.05);
+      overflow:hidden;
+      transition:all .3s ease;
     }
-    #faq .feature:last-child { margin-bottom:0; }
+    .faq-question {
+      width:100%;
+      background:#fff;
+      border:none;
+      outline:none;
+      text-align:left;
+      padding:16px 20px;
+      font-size:1rem;
+      font-weight:600;
+      color:var(--primary);
+      cursor:pointer;
+      transition:background .2s ease;
+    }
+    .faq-question:hover { background:#f7f7f7; }
+    .faq-answer {
+      max-height:0;
+      overflow:hidden;
+      padding:0 20px;
+      background:#fff;
+      transition:max-height .3s ease,padding .3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height:200px;
+      padding:10px 20px 20px;
+    }
 
     /* Animation & Footer */
     .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease-out,transform .8s ease-out;}
@@ -186,12 +203,30 @@
     </div>
   </header>
 
-  <!-- FAQ Section -->
+  <!-- Collapsible FAQ -->
   <section id="faq" class="fade-in">
     <h3>Frequently Asked Questions</h3>
-    <div class="feature"><b>Do I need to make repairs before selling?</b><p>No — we buy properties as-is. You don’t need to spend a dime fixing or cleaning anything.</p></div>
-    <div class="feature"><b>How quickly can I close?</b><p>Most sellers close in as little as 14–30 days, depending on title and paperwork.</p></div>
-    <div class="feature"><b>Do I have to accept your offer?</b><p>Not at all. Our offers are free and come with zero obligation.</p></div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do I need to make repairs before selling?</button>
+      <div class="faq-answer">
+        <p>No — we buy properties as-is. You don’t need to spend a dime fixing or cleaning anything.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How quickly can I close?</button>
+      <div class="faq-answer">
+        <p>Most sellers close in as little as 14–30 days, depending on title and paperwork.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do I have to accept your offer?</button>
+      <div class="faq-answer">
+        <p>Not at all. Our offers are free and come with zero obligation.</p>
+      </div>
+    </div>
   </section>
 
   <!-- BUYERS LIST -->
@@ -215,7 +250,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="fade-in">
     <h3>About Us</h3>
     <p style="text-align:center;">At <b>Rose Key Realty Co.</b>, we help homeowners unlock opportunity — whether that’s a quick, hassle-free cash sale or a full-service listing for top dollar.</p>
@@ -234,6 +268,7 @@
   <div id="toast" class="toast" role="status"></div>
 
   <script>
+    // Toast + Form Handling
     const toast=document.getElementById('toast');
     function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
     document.querySelectorAll('form').forEach(form=>{
@@ -247,6 +282,8 @@
         }catch{showToast('Network error — please try again.','error');}
       });
     });
+
+    // Fade-in Animation
     const fadeEls=document.querySelectorAll('.fade-in');
     const observer=new IntersectionObserver(entries=>{
       entries.forEach((entry,i)=>{
@@ -258,6 +295,14 @@
       });
     },{threshold:0.2});
     fadeEls.forEach(el=>observer.observe(el));
+
+    // FAQ Collapse Toggle
+    document.querySelectorAll('.faq-question').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const item=btn.parentElement;
+        item.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
