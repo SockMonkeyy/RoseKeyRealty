@@ -129,19 +129,7 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
-
-    .toast{
-      position:fixed;top:18px;right:18px;background:#111;color:#fff;
-      padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);
-      opacity:0;pointer-events:none;
-      transition:opacity .2s ease,transform .2s ease;
-      transform:translateY(-6px);
-    }
-    .toast.show{opacity:1;pointer-events:auto;transform:none;}
-    .toast.success{background:#0a7f62;}
-    .toast.error{background:#b00020;}
   </style>
-
 </head>
 
 <body>
@@ -199,15 +187,15 @@
     <h3 class="fade-in">How It Works</h3>
     <div class="grid">
       <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/9a3b6a9d-91b0-4f49-9e18-0b5418d41d13?auto=compress&cs=tinysrgb&w=800" alt="Checklist clipboard for property information" class="feature-img">
+        <img src="https://github.com/user-attachments/assets/9a3b6a9d-91b0-4f49-9e18-0b5418d41d13?auto=compress&cs=tinysrgb&w=800" class="feature-img">
         <b>1) Tell us about the property</b><br>Share a few details and your preferred timeline.
       </div>
       <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/a52c4ce0-abef-4a72-9544-9c1ab963805a?auto=format&fit=crop&w=800&q=80" alt="Cash offer" class="feature-img">
+        <img src="https://github.com/user-attachments/assets/a52c4ce0-abef-4a72-9544-9c1ab963805a?auto=format&fit=crop&w=800&q=80" class="feature-img">
         <b>2) Get a fair cash offer</b><br>We evaluate condition and comps — no obligations, no fees.
       </div>
       <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/549e0b29-3716-467f-82c3-269a4078caf3" alt="Closing date" class="feature-img">
+        <img src="https://github.com/user-attachments/assets/549e0b29-3716-467f-82c3-269a4078caf3" class="feature-img">
         <b>3) You pick the closing date</b><br>We handle the paperwork. Close as fast as 14 days.
       </div>
     </div>
@@ -218,35 +206,16 @@
     <h3 class="fade-in">Why Choose Rose Key</h3>
     <div class="grid">
       <div class="feature fade-in">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Local Team" class="feature-img">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" class="feature-img">
         <b>Local Team</b><br>Born and raised in Alabama — quick, reliable communication.
       </div>
       <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/404ecf37-1e09-496f-82ef-46a76f0b7ce9?auto=format&fit=crop&w=800&q=80" alt="As-Is Purchases" class="feature-img">
+        <img src="https://github.com/user-attachments/assets/404ecf37-1e09-496f-82ef-46a76f0b7ce9?auto=format&fit=crop&w=800&q=80" class="feature-img">
         <b>As-Is Purchases</b><br>No repairs or cleaning needed; we take on the work.
       </div>
       <div class="feature fade-in">
-        <img src="https://github.com/user-attachments/assets/c29fbea5-0326-437a-80b2-151d5822e554?auto=format&fit=crop&w=800?q=80" alt="Flexible Options" class="feature-img">
+        <img src="https://github.com/user-attachments/assets/c29fbea5-0326-437a-80b2-151d5822e554?auto=format&fit=crop&w=800&q=80" class="feature-img">
         <b>Flexible Options</b><br>Cash offer or list traditionally to maximize price — your call.
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="fade-in">
-    <h3>What Homeowners Are Saying</h3>
-    <div class="grid">
-      <div class="feature">
-        <p>“Rose Key made selling my house stress-free. They handled everything and closed in 3 weeks!”</p>
-        <b>– Lisa M., Birmingham, AL</b>
-      </div>
-      <div class="feature">
-        <p>“I inherited a property that needed work. They gave me a fair offer and kept their word.”</p>
-        <b>– David R., Hoover</b>
-      </div>
-      <div class="feature">
-        <p>“Professional, fast, and honest. I’d recommend them to anyone looking to sell fast.”</p>
-        <b>– Karen T., Trussville</b>
       </div>
     </div>
   </section>
@@ -265,22 +234,24 @@
         <input type="email" name="buyer_email" placeholder="Email" required>
         <input type="tel" name="buyer_phone" placeholder="Phone Number">
         <select name="investment_type">
-          <option value="">Investment Type</option><option>Fix and Flip</option><option>Buy and Hold</option><option>Wholesale Partner</option>
+          <option value="">Investment Type</option>
+          <option>Fix and Flip</option>
+          <option>Buy and Hold</option>
+          <option>Wholesale Partner</option>
         </select>
         <select name="preferred_areas">
-          <option value="">Preferred Areas</option><option>Birmingham</option><option>Hoover</option><option>Trussville</option><option>Montgomery</option><option>Other</option>
+          <option value="">Preferred Areas</option>
+          <option>Birmingham</option>
+          <option>Hoover</option>
+          <option>Trussville</option>
+          <option>Montgomery</option>
+          <option>Other</option>
         </select>
         <textarea name="criteria" placeholder="Tell us what you’re looking for (price, property type, etc.)"></textarea>
         <button type="submit" class="cta full">Join the Buyers List</button>
         <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
       </form>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="fade-in">
-    <h3>About Us</h3>
-    <p>At <b>Rose Key Realty Co.</b> we help homeowners unlock opportunity — whether that’s a quick, hassle-free cash sale or a full-service listing for top dollar.</p>
   </section>
 
   <footer>
@@ -294,37 +265,19 @@
     <a href="mailto:deals@rosekeyrealtyco.com">✉️ Email</a>
   </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
   <script>
-    const toast = document.getElementById('toast');
-    function showToast(msg,type='success'){
-      toast.textContent = msg;
-      toast.className = 'toast '+type+' show';
-      setTimeout(()=>toast.className='toast',4000);
-    }
-    document.querySelectorAll('form').forEach(form=>{
-      form.addEventListener('submit', async e=>{
-        // Using standard form POST redirect via _next field
-        // No custom JS fetch needed for redirect
-        // But we disable button so user knows submission occurred
-        const submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-      });
+  // Fade-in animation only
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach((entry,i)=>{
+      if(entry.isIntersecting){
+        entry.target.style.transitionDelay = `${i*0.15}s`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
-    // Fade-in animation
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach((entry,i)=>{
-        if(entry.isIntersecting){
-          entry.target.style.transitionDelay = `${i*0.15}s`;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },{threshold:0.2});
-    fadeEls.forEach(el=>observer.observe(el));
+  },{threshold:0.2});
+  fadeEls.forEach(el=>observer.observe(el));
   </script>
-
 </body>
 </html>
