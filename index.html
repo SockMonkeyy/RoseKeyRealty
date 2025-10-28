@@ -218,12 +218,12 @@
     <h3 class="fade-in">How It Works</h3>
     <div class="grid">
       <div class="feature fade-in">
-  <img src="https://github.com/user-attachments/assets/9a3b6a9d-91b0-4f49-9e18-0b5418d41d13?auto=compress&cs=tinysrgb&w=800"
-       alt="Checklist clipboard for property information"
-       class="feature-img">
-  <b>1) Tell us about the property</b><br>
-  Share a few details and your preferred timeline.
-</div>
+        <img src="https://images.pexels.com/photos/4195323/pexels-photo-4195323.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Checklist clipboard for property information"
+             class="feature-img">
+        <b>1) Tell us about the property</b><br>
+        Share a few details and your preferred timeline.
+      </div>
       <div class="feature fade-in">
         <img src="https://github.com/user-attachments/assets/a52c4ce0-abef-4a72-9544-9c1ab963805a?auto=format&fit=crop&w=800&q=80" alt="Cash offer" class="feature-img">
         <b>2) Get a fair cash offer</b><br>We evaluate condition and comps — no obligations, no fees.
@@ -251,6 +251,37 @@
         <img src="https://github.com/user-attachments/assets/c29fbea5-0326-437a-80b2-151d5822e554?auto=format&fit=crop&w=800&q=80" alt="Flexible Options" class="feature-img">
         <b>Flexible Options</b><br>Cash offer or list traditionally to maximize price — your call.
       </div>
+    </div>
+  </section>
+
+  <!-- BUYERS LIST -->
+  <section id="buyers-list" class="fade-in">
+    <h3>Join Our Buyers List</h3>
+    <p>Are you an investor or cash buyer looking for off-market opportunities in Birmingham and surrounding areas? 
+    Join our exclusive buyers list to get notified first when we find new deals that match your criteria.</p>
+
+    <div class="card" style="margin-top:24px;">
+      <h2 style="color:var(--primary); margin-bottom:10px;">Get Early Access to Properties</h2>
+      <form id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate style="display:grid; gap:12px; grid-template-columns:1fr 1fr;">
+        <input type="text" name="_gotcha" style="display:none">
+
+        <input type="text" name="buyer_name" placeholder="Full Name" required>
+        <input type="email" name="buyer_email" placeholder="Email" required>
+        <input type="tel" name="buyer_phone" placeholder="Phone Number">
+        <select name="investment_type" class="full">
+          <option value="">Investment Type</option>
+          <option>Fix and Flip</option>
+          <option>Buy and Hold</option>
+          <option>Wholesale Partner</option>
+          <option>Other</option>
+        </select>
+        <textarea name="criteria" placeholder="Tell us what you’re looking for (price range, area, etc.)" class="full"></textarea>
+
+        <input type="hidden" name="_subject" value="New Buyer Signup - Rose Key Realty Co.">
+        <input type="hidden" name="_template" value="table">
+        <button type="submit" class="cta full">Join the Buyers List</button>
+        <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
+      </form>
     </div>
   </section>
 
@@ -298,12 +329,32 @@
       }catch{ showToast('Network error — please try again.','error'); }
     });
 
+    // Buyers List form handling
+    const buyersForm = document.getElementById('buyersForm');
+    if (buyersForm) {
+      buyersForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(buyersForm);
+        if(!data.get('buyer_name') || !data.get('buyer_email')){
+          showToast('Please enter your name and email.', 'error');
+          return;
+        }
+        try{
+          const res = await fetch(buyersForm.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
+          if(res.ok){ buyersForm.reset(); showToast('Thanks for joining our buyers list!','success'); }
+          else showToast('There was an issue signing up. Try again.','error');
+        }catch{
+          showToast('Network error — please try again.','error');
+        }
+      });
+    }
+
     // Fade-in Scroll Animation
     const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${i * 0.15}s`; // staggered timing
+          entry.target.style.transitionDelay = `${i * 0.15}s`;
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
@@ -313,15 +364,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
