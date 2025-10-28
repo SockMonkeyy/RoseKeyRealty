@@ -304,8 +304,9 @@ document.querySelectorAll('form').forEach(form => {
     const formData = new FormData(form);
     const jsonData = Object.fromEntries(formData.entries());
     const submitButton = form.querySelector('button[type="submit"]');
+    const formParent = form.parentElement;
 
-    // Disable button to prevent double-clicks
+    // Disable button during submission
     submitButton.disabled = true;
     submitButton.textContent = 'Submitting...';
 
@@ -320,34 +321,38 @@ document.querySelectorAll('form').forEach(form => {
       });
 
       if (res.ok) {
-        const formParent = form.parentElement;
+        // Success animation
         const confirmation = document.createElement('div');
-        confirmation.className = 'confirmation';
+        confirmation.className = 'success-card';
         confirmation.innerHTML = `
-          <div style="text-align:center;padding:20px;">
-            <h3 style="color:#0a7f62;margin-bottom:8px;">✅ Thank you!</h3>
-            <p>We’ve received your submission and will contact you shortly.</p>
-          </div>
+          <div class="success-icon">✅</div>
+          <h3>Thank You!</h3>
+          <p>We’ve received your submission and will reach out soon.</p>
         `;
-        formParent.replaceChild(confirmation, form);
 
-        // Optionally revert form after 5s (remove this block if you want permanent confirmation)
+        // Animate replacement
+        form.classList.add('fade-out');
         setTimeout(() => {
-          formParent.innerHTML = '';
-          form.reset();
-          formParent.appendChild(form);
-          submitButton.disabled = false;
-          submitButton.textContent = 'Submit';
+          formParent.replaceChild(confirmation, form);
+          confirmation.classList.add('visible');
+        }, 300);
+
+        // Revert form after 5 seconds (optional)
+        setTimeout(() => {
+          confirmation.classList.remove('visible');
+          setTimeout(() => {
+            formParent.innerHTML = '';
+            form.reset();
+            formParent.appendChild(form);
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit';
+          }, 400);
         }, 5000);
       } else {
-        const errorData = await res.json();
-        alert(errorData.message || 'Submission failed. Please try again.');
+        alert('Submission failed. Please try again.');
       }
     } catch (error) {
       alert('Network error — please try again.');
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Submit';
     }
   });
 });
@@ -366,8 +371,58 @@ const observer = new IntersectionObserver(entries => {
 fadeEls.forEach(el => observer.observe(el));
 </script>
 
+<style>
+/* Success confirmation animation */
+.success-card {
+  text-align: center;
+  padding: 40px 20px;
+  background: #eaf7f0;
+  border: 2px solid #0a7f62;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.success-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.success-card .success-icon {
+  font-size: 2.5rem;
+  color: #0a7f62;
+  margin-bottom: 10px;
+  animation: pop 0.4s ease;
+}
+.success-card h3 {
+  color: #0a7f62;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.success-card p {
+  font-size: 1rem;
+  color: #222;
+}
+
+/* Keyframes for subtle pop-in icon */
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Fade out form on submission */
+.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+</style>
+
+
 </body>
 </html>
+
 
 
 
