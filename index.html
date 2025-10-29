@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Rose Key Realty Co. | Get a Cash Offer</title>
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗝️</text></svg>">
+  <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/3525fed6-d20c-4c02-83e9-4dbd4aff4f1a">
+
   <style>
     :root{
       --primary:#0a7f62;
@@ -129,23 +130,6 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
-    .captcha-label {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 0.7rem;          /* smaller and more subtle */
-  color: #777;                /* softer tone */
-  margin-top: 4px;            /* tighter spacing */
-  line-height: 1.3;
-}
-.captcha-label a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
-}
-.captcha-label a:hover {
-  text-decoration: underline;
-}
-
 
     .toast{
       position:fixed;top:18px;right:18px;background:#111;color:#fff;
@@ -157,29 +141,6 @@
     .toast.show{opacity:1;pointer-events:auto;transform:none;}
     .toast.success{background:#0a7f62;}
     .toast.error{background:#b00020;}
-    /* FAQ Section Spacing */
-#faq {
-  background: #f7f7f8;
-  padding: 60px 20px;
-  margin: 80px auto;       /* Adds breathing room above and below */
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  border-radius: 16px;
-}
-#faq h3 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-#faq .feature {
-  margin: 0 auto 28px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  max-width: 900px;
-}
-#faq .feature:last-child { margin-bottom: 0; }
-
   </style>
 </head>
 
@@ -216,29 +177,18 @@
       <div class="card fade-in">
         <h2>Get My Cash Offer</h2>
         <div class="trust">Quick form — we’ll follow up within one business day.</div>
-        <form class="hero-form" id="offerForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
-          <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
+        <form class="hero-form" id="offerForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
+          <input type="text" name="_gotcha" style="display:none">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="tel" name="phone" placeholder="Phone" required>
           <input class="full" type="email" name="email" placeholder="Email (optional)">
           <input class="full" type="text" name="address" placeholder="Property Address" required>
-          <select name="timeline">
-            <option value="">Timeline</option>
-            <option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option>
-          </select>
-          <select name="situation">
-            <option value="">Situation</option>
-            <option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option>
-            <option>Foreclosure</option><option>Needs Repairs</option><option>Other</option>
-          </select>
+          <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
+          <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
-          <button type="submit" class="cta full" disabled>Get My Cash Offer</button>
+          <button type="submit" class="cta full">Get My Cash Offer</button>
+          <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
         </form>
-        <div class="mini">By submitting, you agree to be contacted by phone, text, or email.</div>
-        <!-- hCaptcha -->
-          <div class="h-captcha" data-sitekey="a2caa5e6-3d1e-47b0-8c42-73c89a20cd5a" data-callback="enableSubmit"></div>
-          <div class="captcha-label">Protected by hCaptcha • <a href="https://www.hcaptcha.com/privacy" target="_blank">Privacy</a> • <a href="https://www.hcaptcha.com/terms" target="_blank">Terms</a></div>
       </div>
     </div>
   </header>
@@ -300,37 +250,15 @@
     </div>
   </section>
 
-<!-- FAQ -->
-<section id="faq" class="fade-in">
-  <h3>Frequently Asked Questions</h3>
-
-  <div class="feature">
-    <b>Do I need to make repairs before selling?</b>
-    <p>No — we buy properties as-is. You don’t need to spend a dime fixing or cleaning anything.</p>
-  </div>
-
-  <div class="feature">
-    <b>How quickly can I close?</b>
-    <p>Most of our sellers close in as little as 14–30 days, depending on title and paperwork.</p>
-  </div>
-
-  <div class="feature">
-    <b>Do I have to accept your offer?</b>
-    <p>Not at all. Our offers are completely free and come with zero obligation.</p>
-  </div>
-</section>
-
-
-<!-- BUYERS LIST -->
+  <!-- BUYERS LIST -->
   <section id="buyers-list" class="fade-in">
     <h3>Join Our Buyers List</h3>
     <p>Investors and cash buyers — get early access to our off-market deals in Birmingham and surrounding areas.</p>
     <div class="card" style="margin-top:24px;">
       <h2>Get Early Access to Properties</h2>
       <div class="trust">Quick form — we’ll send verified deals directly to your inbox.</div>
-      <form class="hero-form" id="buyersForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="687a9997-bf45-49c4-b9e4-6020f7bbb630">
-        <input type="hidden" name="redirect" value="https://rosekeyrealtyco.com/thank-you.html">
+      <form class="hero-form" id="buyersForm" action="https://formspree.io/f/meopadrv" method="POST" novalidate>
+        <input type="text" name="_gotcha" style="display:none">
         <input type="text" name="buyer_name" placeholder="Full Name" required>
         <input type="email" name="buyer_email" placeholder="Email" required>
         <input type="tel" name="buyer_phone" placeholder="Phone Number">
@@ -343,12 +271,9 @@
           <option>Birmingham</option><option>Hoover</option><option>Trussville</option><option>Montgomery</option><option>Other</option>
         </select>
         <textarea name="criteria" placeholder="Tell us what you’re looking for (price, property type, etc.)"></textarea>
-        <button type="submit" class="cta full" disabled>Join the Buyers List</button>
+        <button type="submit" class="cta full">Join the Buyers List</button>
         <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
       </form>
-      <!-- hCaptcha -->
-        <div class="h-captcha" data-sitekey="a2caa5e6-3d1e-47b0-8c42-73c89a20cd5a" data-callback="enableSubmit"></div>
-        <div class="captcha-label">Protected by hCaptcha • <a href="https://www.hcaptcha.com/privacy" target="_blank">Privacy</a> • <a href="https://www.hcaptcha.com/terms" target="_blank">Terms</a></div>
     </div>
   </section>
 
@@ -358,7 +283,7 @@
     <p>At <b>Rose Key Realty Co.</b> we help homeowners unlock opportunity — whether that’s a quick, hassle-free cash sale or a full-service listing for top dollar.</p>
   </section>
 
- <footer>
+  <footer>
     © <script>document.write(new Date().getFullYear())</script> Rose Key Realty Co. • Birmingham, AL ·
     <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a> ·
     <a href="tel:+12058528786">(205) 852-8786</a>
@@ -371,18 +296,9 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- ✅ JavaScript -->
   <script>
-    // Toast system
     const toast=document.getElementById('toast');
     function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
-
-    // Enable submit button once hCaptcha is solved
-    function enableSubmit(){
-      document.querySelectorAll('form button[type="submit"]').forEach(btn=>btn.disabled=false);
-    }
-
-    // Handle form submissions
     document.querySelectorAll('form').forEach(form=>{
       form.addEventListener('submit',async e=>{
         e.preventDefault();
@@ -394,8 +310,6 @@
         }catch{showToast('Network error — please try again.','error');}
       });
     });
-
-    // Fade-in animation
     const fadeEls=document.querySelectorAll('.fade-in');
     const observer=new IntersectionObserver(entries=>{
       entries.forEach((entry,i)=>{
@@ -408,15 +322,6 @@
     },{threshold:0.2});
     fadeEls.forEach(el=>observer.observe(el));
   </script>
-
-  <!-- ✅ hCaptcha Script -->
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </body>
 </html>
-
-
-
-
-
-
 
