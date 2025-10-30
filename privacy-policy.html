@@ -19,9 +19,41 @@ body{
   background:var(--light);
   color:var(--text);
   line-height:1.7;
-  padding:40px 20px;
+  padding:0;
+  margin:0;
+}
+nav{
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+nav .brand{
+  font-weight:700;
+  color:var(--primary);
+  font-size:1.1rem;
+}
+nav a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600;
+}
+nav a:hover{text-decoration:underline;}
+main{
   max-width:900px;
-  margin:auto;
+  margin:40px auto;
+  padding:0 20px;
+}
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:30px;
 }
 h1{
   color:var(--primary);
@@ -33,25 +65,26 @@ h2{color:var(--primary);margin-top:30px;margin-bottom:10px;}
 p,ul{margin-bottom:14px;}
 a{color:var(--primary);text-decoration:none;}
 a:hover{text-decoration:underline;}
-.card{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:30px;
-}
 footer{
   text-align:center;
   font-size:.9rem;
   color:#777;
-  margin-top:40px;
+  margin:40px 0 20px;
 }
 @media(max-width:600px){
-  body{padding:20px;}
   .card{padding:20px;}
+  h1{font-size:1.6rem;}
 }
 </style>
 </head>
 <body>
+
+<nav>
+  <div class="brand">🗝️ Rose Key Realty Co.</div>
+  <a href="index.html">← Back to Home</a>
+</nav>
+
+<main>
 <div class="card">
 <h1>Privacy Policy</h1>
 
@@ -60,7 +93,7 @@ footer{
 <h2>Information We Collect</h2>
 <ul>
 <li>Information you provide — name, phone, email, and property details submitted via our forms.</li>
-<li>Automatic data — cookies, device info, and basic analytics used to improve your experience.</li>
+<li>Automatic data — cookies, device info, and analytics to improve your experience.</li>
 </ul>
 
 <h2>How We Use Your Information</h2>
@@ -74,7 +107,7 @@ footer{
 <p>By submitting your information, you consent to receive texts or emails from Rose Key Realty Co. related to your inquiry or investment interests. Message & data rates may apply. Reply <strong>STOP</strong> to opt out at any time.</p>
 
 <h2>Information Sharing</h2>
-<p>We never sell your data. We may share limited info with trusted vendors (e.g., CRM or email platforms) strictly to support business operations.</p>
+<p>We never sell your data. We may share limited info with trusted vendors (e.g., CRM or email platforms) solely to support business operations.</p>
 
 <h2>Your Rights</h2>
 <p>You can request access, correction, or deletion of your personal data anytime by emailing <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a>.</p>
@@ -89,5 +122,7 @@ footer{
 <p>Last updated October 2025<br>© 2025 Rose Key Realty Co. • Birmingham, AL</p>
 </footer>
 </div>
+</main>
+
 </body>
 </html>
