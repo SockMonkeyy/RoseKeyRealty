@@ -2,64 +2,85 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Terms of Service | Rose Key Realty Co.</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  color: #333;
+:root{
+  --primary:#0a7f62;
+  --accent:#f5b700;
+  --light:#f7f7f8;
+  --text:#222;
+  --radius:16px;
+  --shadow:0 6px 20px rgba(0,0,0,.06);
 }
-h1 {
-  color: #0a7f62;
-  text-align: center;
-  margin-bottom: 30px;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--light);
+  color:var(--text);
+  line-height:1.7;
+  padding:40px 20px;
+  max-width:900px;
+  margin:auto;
 }
-h2 { color: #0a7f62; margin-top: 24px; }
-a { color: #0a7f62; text-decoration: none; }
-a:hover { text-decoration: underline; }
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  margin-top: 40px;
+h1{
+  color:var(--primary);
+  text-align:center;
+  margin-bottom:20px;
+  font-size:2rem;
+}
+h2{color:var(--primary);margin-top:30px;margin-bottom:10px;}
+p,ul{margin-bottom:14px;}
+a{color:var(--primary);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:30px;
+}
+footer{
+  text-align:center;
+  font-size:.9rem;
+  color:#777;
+  margin-top:40px;
+}
+@media(max-width:600px){
+  body{padding:20px;}
+  .card{padding:20px;}
 }
 </style>
 </head>
 <body>
-
+<div class="card">
 <h1>Terms of Service</h1>
-<p>Welcome to <strong>Rose Key Realty Co.</strong>. By accessing our website or submitting your information, you agree to the following terms.</p>
+
+<p>Welcome to <strong>Rose Key Realty Co.</strong>. By using our website or submitting your information, you agree to the terms below.</p>
 
 <h2>1. Services</h2>
-<p>Rose Key Realty Co. provides real estate consulting, home-selling solutions, and investor opportunities. We do not guarantee specific outcomes, offers, or sale prices, as each property is evaluated individually.</p>
+<p>We provide real-estate solutions including cash offers, listings, and investment opportunities. All valuations are estimates; final outcomes may vary.</p>
 
-<h2>2. Communications</h2>
-<p>By providing your contact information, you consent to receive communications via SMS, phone, or email regarding your property inquiry or related opportunities. You may opt out of these messages at any time by replying <strong>STOP</strong> or contacting us directly.</p>
+<h2>2. Communications Consent</h2>
+<p>By sharing your contact info, you authorize us to send SMS, email, or phone updates related to your inquiry or services. You may opt out any time by replying <strong>STOP</strong> or contacting us directly.</p>
 
-<h2>3. Use of Website</h2>
-<p>You agree to use this website lawfully and only for its intended purposes. Unauthorized use, scraping, or distribution of site materials is prohibited.</p>
+<h2>3. Acceptable Use</h2>
+<p>You agree to use this site lawfully and solely for personal informational purposes. Unauthorized data scraping or duplication is prohibited.</p>
 
-<h2>4. Limitation of Liability</h2>
-<p>Rose Key Realty Co. is not responsible for damages arising from reliance on the information on this site or communications from our team. All content is provided “as is” without warranty.</p>
+<h2>4. Liability Disclaimer</h2>
+<p>Information on this site is provided “as is.” Rose Key Realty Co. is not liable for losses arising from its use or reliance.</p>
 
-<h2>5. Privacy</h2>
-<p>Your use of this site is also governed by our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+<h2>5. Privacy Policy</h2>
+<p>Your use of our services is also governed by our <a href="privacy-policy.html">Privacy Policy</a>.</p>
 
 <h2>6. Changes to Terms</h2>
-<p>We reserve the right to modify these terms at any time. Updated terms will be posted on this page with a new effective date.</p>
+<p>We may modify these Terms at any time. Updates will be posted here with a new effective date.</p>
 
-<h2>7. Contact</h2>
-<p>If you have questions about these Terms, contact us at:<br>
-<a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a> or call <a href="tel:+12058528786">(205) 852-8786</a>.</p>
+<h2>7. Contact Us</h2>
+<p>Questions? Email <a href="mailto:deals@rosekeyrealtyco.com">deals@rosekeyrealtyco.com</a> or call <a href="tel:+12058528786">(205) 852-8786</a>.</p>
 
 <footer>
-<p>Last updated: October 2025<br>
-© 2025 Rose Key Realty Co. • Birmingham, AL</p>
+<p>Last updated October 2025<br>© 2025 Rose Key Realty Co. • Birmingham, AL</p>
 </footer>
-
+</div>
 </body>
 </html>
