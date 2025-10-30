@@ -104,7 +104,6 @@
       background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:22px;
     }
     .feature b{color:#000;}
-
     .feature-img{
       width:100%;height:200px;object-fit:cover;
       border-radius:10px;margin-bottom:12px;
@@ -113,13 +112,10 @@
     }
     .feature:hover .feature-img{transform:scale(1.04);filter:brightness(1.05);}
     @media(max-width:600px){.feature-img{height:150px;}}
-
     .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease-out,transform .8s ease-out;}
     .fade-in.visible{opacity:1;transform:translateY(0);}
-
     footer{background:var(--primary);color:#fff;text-align:center;padding:28px 16px;margin-top:64px;font-size:.95rem;}
     footer a{color:#fff;text-decoration:underline;}
-
     .sticky-contact{
       position:fixed;bottom:18px;right:18px;
       display:flex;flex-direction:column;gap:8px;z-index:30;
@@ -129,17 +125,6 @@
       padding:10px 14px;border-radius:10px;text-decoration:none;
       font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);
     }
-
-    .toast{
-      position:fixed;top:18px;right:18px;background:#111;color:#fff;
-      padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);
-      opacity:0;pointer-events:none;
-      transition:opacity .2s ease,transform .2s ease;
-      transform:translateY(-6px);
-    }
-    .toast.show{opacity:1;pointer-events:auto;transform:none;}
-    .toast.success{background:#0a7f62;}
-    .toast.error{background:#b00020;}
   </style>
 </head>
 
@@ -185,6 +170,8 @@
           <select name="timeline"><option value="">Timeline</option><option>ASAP</option><option>30–60 days</option><option>60–90 days</option><option>Just exploring</option></select>
           <select name="situation"><option value="">Situation</option><option>Vacant</option><option>Inherited</option><option>Tenant Occupied</option><option>Foreclosure</option><option>Needs Repairs</option><option>Other</option></select>
           <textarea name="notes" placeholder="Anything else we should know?"></textarea>
+
+          <!-- ✅ Redirects to Thank You page -->
           <input type="hidden" name="_redirect" value="https://rosekeyrealtyco.com/thank-you.html">
 
           <button type="submit" class="cta full">Get My Cash Offer</button>
@@ -272,10 +259,13 @@
           <option>Birmingham</option><option>Hoover</option><option>Trussville</option><option>Montgomery</option><option>Other</option>
         </select>
         <textarea name="criteria" placeholder="Tell us what you’re looking for (price, property type, etc.)"></textarea>
+
+        <!-- ✅ Redirects to Thank You page -->
         <input type="hidden" name="_redirect" value="https://rosekeyrealtyco.com/thank-you.html">
+
         <button type="submit" class="cta full">Join the Buyers List</button>
       </form>
-       <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
+      <div class="mini">We’ll only email you real opportunities — no spam, ever.</div>
     </div>
   </section>
 
@@ -300,10 +290,6 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const toast=document.getElementById('toast');
-    function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
-    document.querySelectorAll('form').forEach(form=>{
-    });
     const fadeEls=document.querySelectorAll('.fade-in');
     const observer=new IntersectionObserver(entries=>{
       entries.forEach((entry,i)=>{
@@ -318,11 +304,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
