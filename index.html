@@ -303,15 +303,6 @@
     const toast=document.getElementById('toast');
     function showToast(msg,type='success'){toast.textContent=msg;toast.className='toast '+type+' show';setTimeout(()=>toast.className='toast',3800);}
     document.querySelectorAll('form').forEach(form=>{
-      form.addEventListener('submit',async e=>{
-        e.preventDefault();
-        const data=new FormData(form);
-        try{
-          const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
-          if(res.ok){form.reset();showToast('Thanks! Your information has been received.');}
-          else showToast('Submission failed. Try again.','error');
-        }catch{showToast('Network error — please try again.','error');}
-      });
     });
     const fadeEls=document.querySelectorAll('.fade-in');
     const observer=new IntersectionObserver(entries=>{
@@ -327,6 +318,7 @@
   </script>
 </body>
 </html>
+
 
 
 
